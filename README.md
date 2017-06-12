@@ -1,0 +1,2 @@
+# vedetta
+OpenBSD Router Boilerplate
