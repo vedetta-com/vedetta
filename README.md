@@ -14,7 +14,9 @@
 * httpd
 * ifstated
 * iked
-* ipsec/isakmpd/npppd
+* ipsec
+* isakmpd
+* npppd
 * nsd
 * pf
 * rebound
