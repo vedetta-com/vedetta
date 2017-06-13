@@ -1,0 +1,19 @@
+$TTL	3600					; default time to live
+@		IN	SOA	ns1.vedetta.lan	hostmaster.vedetta.lan. (
+				2017052901	; serial
+				24h		; refresh
+				30m		; retry
+				2d		; expire
+				7d		; min ttl
+				)
+		IN	NS	ns1.vedetta.lan.
+;		IN	NS	ns2.vedetta.lan.
+; vedetta.lan zone prefix
+$ORIGIN	0.0.10.in-addr.arpa.
+1		IN	PTR	ap.vedetta.lan.
+10		IN	PTR	mobile.vedetta.lan.
+11		IN	PTR	tablet.vedetta.lan.
+$ORIGIN	10.10.10.in-addr.arpa.
+10		IN	PTR	acolyte.vedetta.lan.
+; vedetta.lan default prefix
+$ORIGIN	10.in-addr.arpa.

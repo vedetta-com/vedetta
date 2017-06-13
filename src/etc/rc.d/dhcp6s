@@ -1,0 +1,20 @@
+#!/bin/sh
+
+daemon="/usr/local/sbin/dhcp6s"
+
+. /etc/rc.d/rc.subr
+
+rc_reload=NO
+
+rc_check() {
+	kill -0 $(cat /var/run/dhcp6s.pid)
+}
+
+rc_stop() {
+	kill -TERM $(
+		cat /var/run/dhcp6s.pid
+		rm -f /var/run/dhcp6s.pid 2> /dev/null > /dev/null
+	)
+}
+
+rc_cmd $1
