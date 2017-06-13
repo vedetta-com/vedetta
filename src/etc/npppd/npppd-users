@@ -1,0 +1,7 @@
+# $OpenBSD: npppd-users,v 1.1 2012/09/20 12:51:43 yasuoka Exp $
+# sample npppd-users file.  see npppd-users(5)
+
+horia:\
+	:password=secret:\
+	:framed-ip-address=10.10.100.110:
+

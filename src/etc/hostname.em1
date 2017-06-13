@@ -1,0 +1,7 @@
+-inet
+-inet6
+inet 172.16.0.1 255.255.255.0 172.16.0.255
+inet6 2001:470:b35c:abba::ace:face 64
+inet6 alias fd80:1fe9:fcee:abba::ace:face 64
+group lan
+up

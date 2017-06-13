@@ -1,0 +1,46 @@
+$TTL		3600					; default time to live
+; SOA Record
+VEDETTA.LAN.	3600	IN	SOA	ns1		hostmaster (
+					2017052900	; Serial Number
+					28800		; Refresh
+					7200		; Retry
+					604800		; Expire
+					86400		; Min TTL
+					)
+; A+ Records
+			IN	AAAA	fd80:1fe9:fcee:1337::ace:face
+			IN	AAAA	2001:470:b35c:1337::ace:face
+		500	IN	A	10.10.10.10
+; NS Records
+		3600	IN	NS	ns1
+;		3600	IN	NS	ns2
+; MX Records
+			IN	MX	0	mail
+;			IN	MX	10	mail.relay.net.
+; SRV Records
+;_sip._udp		IN	SRV	10	10	5060	me.dyndns.org.
+;_sip._udp		IN	SRV	20	10	5060	mx
+; Host Records
+ap			IN	AAAA	fd80:1fe9:fcee:cafe::ace:face
+ap			IN	AAAA	2001:470:b35c:cafe::ace:face
+ap			IN	A	10.0.0.1
+lan			IN      AAAA    fd80:1fe9:fcee:abba::ace:face
+lan			IN	AAAA	2001:470:b35c:abba::ace:face
+lan			IN	A	172.16.0.1
+dmz			IN	AAAA	fd80:1fe9:fcee:bead::ace:face
+dmz			IN	AAAA	2001:470:b35c:bead::ace:face
+dmz			IN	A	192.168.0.1
+*			IN	AAAA	::1
+*			IN	A	127.0.0.1
+desktop			IN	A	172.16.0.10
+mobile			IN	A	10.0.0.10
+tablet			IN	A	10.0.0.11
+nfs			IN	AAAA	fd80:1fe9:fcee:bead::bad:face
+nfs			IN	A	192.168.0.80
+; CNAME Records
+acolyte		3600	IN	CNAME	@
+hostmaster	3600	IN	CNAME	@
+mail		3600	IN	CNAME	@
+ns1		3600	IN	CNAME	@
+ns		3600	IN	CNAME	@
+ntp		3600	IN	CNAME	@

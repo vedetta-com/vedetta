@@ -1,0 +1,20 @@
+check_quotas=NO
+dhcpd_flags="athn0 em1 em2"
+ftpproxy_flags="-b 10.10.10.10 -T FTP_PROXY"
+ftpproxy6_flags="-b fd80:1fe9:fcee:1337::ace:face -T FTP_PROXY6"
+ifstated_flags=
+inetd_flags=NO
+iked_flags="-6"
+#ipsec=YES # Load ipsec.conf(5)
+#isakmpd_flags="-K" # Avoid keynote(4) policy checking
+#npppd_flags=
+nsd_flags="-c /var/nsd/etc/nsd.conf"
+ntpd_flags=
+sndiod_flags=NO
+syslogd_flags="${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log"
+unbound_flags="-v -c /var/unbound/etc/unbound.conf"
+rtadvd_flags="em1 em2 athn0"
+#dhcp6s_flags="-c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1"
+httpd_flags=
+relayd_flags
+pf=YES

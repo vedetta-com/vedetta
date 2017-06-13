@@ -1,0 +1,5 @@
+
+(*) LAN/WLAN access granted on the following ports:
+    all
+(*) Internet access granted on the following ports:
+    ssh, ftp, xmpp-client, pop3s, imaps, smtps, whois
