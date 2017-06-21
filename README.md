@@ -13,6 +13,7 @@ Share what you've got, keep what you need:
 * dhclient
 * dhcpd
 * (dhcp6s and dhcp6c optional, from package)
+* doas
 * ftp-proxy
 * httpd
 * ifstated
