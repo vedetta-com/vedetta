@@ -44,3 +44,4 @@ mail		3600	IN	CNAME	@
 ns1		3600	IN	CNAME	@
 ns		3600	IN	CNAME	@
 ntp		3600	IN	CNAME	@
+boot		3600	IN	CNAME	ap

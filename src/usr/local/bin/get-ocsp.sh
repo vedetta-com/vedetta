@@ -1,4 +1,6 @@
 #!/bin/sh
+# https://community.letsencrypt.org/t/will-does-the-letsencrypt-client-create-a-cert-chain-usable-with-ocsp-stapling/2072/18
+
 SITE="$1"
 LEDIR="/etc/ssl/acme"
 DIR="$LEDIR"
