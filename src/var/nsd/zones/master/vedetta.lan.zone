@@ -20,6 +20,19 @@ VEDETTA.LAN.	3600	IN	SOA	ns1		hostmaster (
 ; SRV Records
 ;_sip._udp		IN	SRV	10	10	5060	me.dyndns.org.
 ;_sip._udp		IN	SRV	20	10	5060	mx
+; CAA Records
+			IN	CAA	128	issue		"vedetta.lan"
+			IN	CAA	128	issue		"letsencrypt.org"
+			IN	CAA	128	issuewild	";"
+; SSHFP Records
+			IN	SSHFP	1 1	efadc3fc013f3d4efcb3eb2ddfd3e237c6ec2b34
+			IN	SSHFP	1 2	0cfceddd023c91cfd2347c367c925b4c15ad3a0652acd0484088f0d52b93e1d7
+			IN	SSHFP	2 1	26e48481c2a8f34ad14ae78caeb5bf623444b6a6
+			IN	SSHFP	2 2	a8da2e442c85f996e9b9424d412da54a945d46c98b99cb470e09bfb2c0a03e51
+			IN	SSHFP	3 1	ada617cf74b201afd8bb0bd0f36a2f4406db27bb
+			IN	SSHFP	3 2	e806c5fe6b4e5cf555243bf527cfd38dc4b3853d16070d232dcd33c4388a20f2
+			IN	SSHFP	4 1	ec4fdef6b6eea4dc3f8163a8e48069c92ff96d49
+			IN	SSHFP	4 2	f510394a7a4490802abe15d866ecd0ab131ec6b03c8ca269a9013a62930ab2ca
 ; Host Records
 ap			IN	AAAA	fd80:1fe9:fcee:cafe::ace:face
 ap			IN	AAAA	2001:470:b35c:cafe::ace:face
