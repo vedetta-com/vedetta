@@ -1,12 +1,19 @@
+# Full virtual disk (softraid) encryption (bioctl) with AES in XTS mode
+# www.openbsd.org/faq/faq14.html#softraidFDE
+# (!) reduce wear and tear with mount_mfs
 85a4b6de12fd2d56.a / ffs rw,softdep,noatime 1 1
 85a4b6de12fd2d56.k /home ffs rw,softdep,noatime,nodev,nosuid 1 2
 #85a4b6de12fd2d56.f /tmp ffs rw,softdep,noatime,nodev,nosuid 1 2
-# mount_mfs /tmp with 256Mb
-swap               /tmp mfs rw,noatime,nodev,nosuid,-s=512000 0 0
+# (!) increase mfs /tmp size (>1G) before upgrades
+# (!) sticky mfs /tmp, see var/cron/tabs/root
+swap               /tmp mfs rw,noatime,nodev,nosuid,-s=128M 0 0
 85a4b6de12fd2d56.g /usr ffs rw,softdep,noatime,nodev 1 2
 85a4b6de12fd2d56.h /usr/local ffs rw,softdep,noatime,wxallowed,nodev 1 2
 85a4b6de12fd2d56.j /usr/obj ffs rw,softdep,noatime,nodev,nosuid 1 2
 85a4b6de12fd2d56.i /usr/src ffs rw,softdep,noatime,nodev,nosuid 1 2
 85a4b6de12fd2d56.d /var ffs rw,softdep,noatime,nodev,nosuid 1 2
-85a4b6de12fd2d56.e /var/log ffs rw,softdep,noatime,nodev,nosuid 1 2
+#85a4b6de12fd2d56.e /var/log ffs rw,softdep,noatime,nodev,nosuid 1 2
+swap               /var/log mfs rw,noatime,nodev,nosuid,-P=/dev/sd3e,-s=128M 0 0
+swap               /var/run mfs rw,noatime,nodev,nosuid,-s=384K 0 0
+# (!) swap partition (b) outside softraid, since it's encrypted by default
 /dev/sd0b none swap sw 0 0
