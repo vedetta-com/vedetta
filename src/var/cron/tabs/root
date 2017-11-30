@@ -23,7 +23,7 @@ HOME=/var/log
 30	11	1,14	*	*	/usr/local/bin/dnsblock.sh > /dev/null 2>&1
 20	2	1,14	*	*	/usr/sbin/unbound-anchor -a "/var/unbound/db/root.key" && chown _unbound:_unbound /var/unbound/db/root.key
 20	4	1	May,Nov	*	/usr/bin/ftp -a -o /var/unbound/etc/root.hints ftp://FTP.INTERNIC.NET/domain/named.cache && /usr/sbin/rcctl restart unbound
-20	6	*	*	*	/usr/sbin/acme-client freedns.afraid.org && rcctl reload httpd relayd
+20	6	*	*	*	/usr/sbin/acme-client freedns.afraid.org && /usr/sbin/rcctl restart relayd && /usr/local/bin/get-ocsp.sh freedns.afraid.org
 # block bad hosts for 10-11 minutes
 *	*	*	*	*	/sbin/pfctl -t temporaryban -T expire 600 > /dev/null 2>&1
 # clear portknock1 and portknock2 every 5 minutes (older than 60 sec):
