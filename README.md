@@ -278,7 +278,7 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 * 11n is max WiFi mode, [but do you really need more?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
 
 ## Support
-Via [issues](../../issues) and #openbsd:matrix.org
+Via [issues](https://github.com/vedetta-com/vedetta/issues) and #openbsd:matrix.org
 
 ## Contribute
 Show us your fork!
