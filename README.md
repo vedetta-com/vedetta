@@ -275,9 +275,10 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 * VPN with IKEv2 or IKEv1, not both. *While there are many tecnologies for VPN, only IKEv2 and IKEv1 are standard (considerable effort was put into testing and securing)*
 * OpenIKED is close to supporting the StrongSwan Android client
 * relayd does not ocsp, yet
+* 11n is max WiFi mode, [but do you really need more?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
 
 ## Support
-Via [issues](issues) and #openbsd:matrix.org
+Via [issues](../../issues) and #openbsd:matrix.org
 
 ## Contribute
 Show us your fork!
