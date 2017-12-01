@@ -221,7 +221,7 @@ Share what you've got, keep what you need:
     - [`var/unbound`](src/var/unbound)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set unbound flags \"-v -c /var/unbound/etc/unbound.conf\"
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set unbound flags \"-v -c /var/unbound/etc/unbound.conf\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start unbound`
 
 Sysadmin:
