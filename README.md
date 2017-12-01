@@ -271,7 +271,7 @@ Encryption is the easiest method for media sanitization and disposal. For this r
 ## SSL
 It's best practice to create CAs on a single purpose secure machine, with no network access.
 
-Reject certificates as often as possible.
+Revoke certificates as often as possible.
 
 ## SSH
 Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
