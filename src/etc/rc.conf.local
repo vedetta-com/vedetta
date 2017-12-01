@@ -16,5 +16,5 @@ unbound_flags="-v -c /var/unbound/etc/unbound.conf"
 rtadvd_flags="em1 em2 athn0"
 #dhcp6s_flags="-c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1"
 httpd_flags=
-relayd_flags
+relayd_flags=
 pf=YES
