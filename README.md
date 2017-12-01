@@ -260,7 +260,7 @@ Sysadmin:
   - *Configure:*
     - `~/.tmux.conf`
   - *Usage:*
-    - `tmux`
+    - [`tmux`](https://man.openbsd.org/tmux)
 
 ## Hardware
 OpenBSD likes small form factor, low power, lots of ECC memory, AES-NI support, open source boot, and the fastest supported network cards. This configuration has been tested on [APU2](https://pcengines.ch/apu2c4.htm).
@@ -268,14 +268,26 @@ OpenBSD likes small form factor, low power, lots of ECC memory, AES-NI support, 
 ## Install
 Encryption is the easiest method for media sanitization and disposal. For this reason, it is recommended to use [full disk encryption](https://www.openbsd.org/faq/faq14.html#softraidFDE).
 
+## SSL
+It's best practice to create CAs on a single purpose secure machine, with no network access.
+
+Reject certificates as often as possible.
+
+## SSH
+Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
+
+## Firewall
+Guests can use the DNS nameserver to access the ad-free web, while authenticated users gain desired permissions. It's best to authenticate an IP after connecting to VPN. There are three users in this one person example: one for wheel, one for sftp, and one for authpf.
+
 ## Performance
 Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce wear and tear, as well as to speed up the system. Remember to set the [sticky bit](https://man.openbsd.org/chmod.1#1000) on mfs /tmp, as shown in [etc/fstab](src/etc/fstab).
 
 ## Caveats
 * VPN with IKEv2 or IKEv1, not both. *While there are many tecnologies for VPN, only IKEv2 and IKEv1 are standard (considerable effort was put into testing and securing)*
-* OpenIKED is close to supporting the StrongSwan Android client
+* OpenIKED is close to supporting the strongSwan Android client
 * relayd does not ocsp, yet
-* 11n is max WiFi mode, [but do you really need more?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
+* 11n is max WiFi mode, [is this enough?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
+* authpf users have sftp access
 
 ## Support
 Via [issues](https://github.com/vedetta-com/vedetta/issues) and #openbsd:matrix.org
