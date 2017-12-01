@@ -111,8 +111,8 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta create`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta install`
-    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate acolyte.vedetta.lan create`
-    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate acolyte.vedetta.lan install`
+    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate freedns.afraid.org create`
+    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate freedns.afraid.org install`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate mobile.vedetta.lan create`
     - `cd /etc/iked/export`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate mobile.vedetta.lan export`
@@ -134,8 +134,8 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta create`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta install /etc/isakmpd`
-    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate acolyte.vedetta.lan create`
-    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate acolyte.vedetta.lan install /etc/isakmpd`
+    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate freedns.afraid.org create`
+    - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate freedns.afraid.org install /etc/isakmpd`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate mobile.vedetta.lan create`
     - `cd /etc/isakmpd/export`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate mobile.vedetta.lan export`
