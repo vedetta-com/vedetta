@@ -273,11 +273,16 @@ Encryption is the easiest method for media sanitization and disposal. For this r
 ## SSL
 It's best practice to create CAs on a single purpose secure machine, with no network access.
 
-Specify which certificate authorities (CAs) are allowed to issue certificates for your domain, by adding [DNS Certification Authority Authorization (CAA)](https://tools.ietf.org/html/rfc6844) Resource Record to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone)
+Specify which certificate authorities (CAs) are allowed to issue certificates for your domain, by adding [DNS Certification Authority Authorization (CAA)](https://tools.ietf.org/html/rfc6844) Resource Record (RR) to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone)
 
 Revoke certificates as often as possible.
 
 ## SSH
+
+[SSH fingerprints verified by DNS](http://man.openbsd.org/ssh#VERIFYING_HOST_KEYS) is done by adding Secure Shell (Key) Fingerprint (SSHFP) Resource Record (RR) to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone): `ssh-keygen -r vedetta.lan.`  
+Verify: `dig -t SSHFP vedetta.lan`  
+Usage: `ssh -o "VerifyHostKeyDNS ask" acolyte.vedetta.lan`
+
 Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
 
 ## Firewall
