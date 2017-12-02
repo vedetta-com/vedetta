@@ -85,6 +85,7 @@ Share what you've got, keep what you need:
 * [httpd](https://man.openbsd.org/httpd) - HTTP daemon as primary, fallback, and [autoinstall](https://man.openbsd.org/autoinstall)
   - *Configure:*
     - [`etc/httpd.conf`](src/etc/httpd.conf)
+    - [`etc/newsyslog.conf`](src/etc/newsyslog.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/ssl/acme/freedns.afraid.org.fullchain.pem`](src/etc/ssl/acme/freedns.afraid.org.fullchain.pem)
     - [`etc/ssl/acme/freedns.afraid.org.ocsp.resp.der`](src/etc/ssl/acme/freedns.afraid.org.ocsp.resp.der)
@@ -92,6 +93,7 @@ Share what you've got, keep what you need:
     - [`var/www/htdocs`](src/var/www/htdocs)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
+    - [`pfctl`](https://man.openbsd.org/pfctl)` reload syslogd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable httpd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start httpd`
 * [ifstated](https://man.openbsd.org/ifstated) - Interface State daemon to reconnect, update IP, and log
