@@ -93,7 +93,7 @@ Share what you've got, keep what you need:
     - [`var/www/htdocs`](src/var/www/htdocs)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`pfctl`](https://man.openbsd.org/pfctl)` reload syslogd`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` reload syslogd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable httpd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start httpd`
 * [ifstated](https://man.openbsd.org/ifstated) - Interface State daemon to reconnect, update IP, and log
