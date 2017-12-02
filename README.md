@@ -279,7 +279,9 @@ Revoke certificates as often as possible.
 
 ## SSH
 
-[SSH fingerprints verified by DNS](http://man.openbsd.org/ssh#VERIFYING_HOST_KEYS) is done by adding Secure Shell (Key) Fingerprint (SSHFP) Resource Record (RR) to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone): `ssh-keygen -r vedetta.lan.` Verify: `dig -t SSHFP vedetta.lan` Usage: `ssh -o "VerifyHostKeyDNS ask" acolyte.vedetta.lan`
+[SSH fingerprints verified by DNS](http://man.openbsd.org/ssh#VERIFYING_HOST_KEYS) is done by adding Secure Shell (Key) Fingerprint (SSHFP) Resource Record (RR) to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone): `ssh-keygen -r vedetta.lan.`  
+Verify: `dig -t SSHFP vedetta.lan`  
+Usage: `ssh -o "VerifyHostKeyDNS ask" acolyte.vedetta.lan`
 
 Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
 
