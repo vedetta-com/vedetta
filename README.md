@@ -273,6 +273,8 @@ Encryption is the easiest method for media sanitization and disposal. For this r
 ## SSL
 It's best practice to create CAs on a single purpose secure machine, with no network access.
 
+Specify which certificate authorities (CAs) are allowed to issue certificates for your domain, by adding [DNS Certification Authority Authorization (CAA)](https://en.wikipedia.org/wiki/DNS_Certification_Authority_Authorization) Resource Record to [`var/nsd/zones/master/vedetta.lan.zone`](src/var/nsd/zones/master/vedetta.lan.zone)
+
 Revoke certificates as often as possible.
 
 ## SSH
