@@ -202,6 +202,12 @@ Share what you've got, keep what you need:
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set rtadvd flags \"athn0 em1 em2\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start rtadvd`
+* [sensorsd](https://man.openbsd.org/sensorsd) - hardware sensors monitor
+  - *Configure:*
+    - [`etc/sensorsd.conf`](src/etc/sensorsd.conf)
+  - *Usage:*
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable sensorsd`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` start sensorsd`
 * [sshd](https://man.openbsd.org/sshd) - OpenSSH SSH daemon with internal-sftp
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
