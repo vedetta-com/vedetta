@@ -1,14 +1,13 @@
 -inet
 -inet6
+lladdr random
 inet 10.0.0.1 255.255.255.0 10.0.0.255
 inet6 2001:470:b35c:cafe::ace:face 64
 inet6 alias fd80:1fe9:fcee:cafe::ace:face 64
-media autoselect
-mode 11g
-mediaopt hostap
 nwid "OpenBSD AP"
 wpakey "secret"
-wpaprotos wpa2
+media autoselect
+mediaopt hostap
+mode 11g
 chan 1
-#-powersave
 up

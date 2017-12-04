@@ -1,6 +1,7 @@
 -inet
 -inet6
-lladdr fe:e1:ba:d0:91:13
+# Thwart the virtual interface from taking the MAC address of the first physical interface
+lladdr random
 inet 10.10.10.10 255.255.255.0 10.10.10.255
 inet6 2001:470:b35c:1337::ace:face 64
 inet6 alias fd80:1fe9:fcee:1337::ace:face 64
