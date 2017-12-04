@@ -1,5 +1,6 @@
 # Full virtual disk (softraid) encryption (bioctl) with AES in XTS mode
 # www.openbsd.org/faq/faq14.html#softraidFDE
+# Use Disklabel Unique Identifiers (DUIDs): sysctl hw.disknames
 # (!) reduce wear and tear with mount_mfs
 85a4b6de12fd2d56.a / ffs rw,softdep,noatime 1 1
 85a4b6de12fd2d56.k /home ffs rw,softdep,noatime,nodev,nosuid 1 2
@@ -16,4 +17,4 @@ swap               /tmp mfs rw,noatime,nodev,nosuid,-s=128M 0 0
 swap               /var/log mfs rw,noatime,nodev,nosuid,-P=/dev/sd3e,-s=128M 0 0
 swap               /var/run mfs rw,noatime,nodev,nosuid,-s=384K 0 0
 # (!) swap partition (b) outside softraid, since it's encrypted by default
-/dev/sd0b none swap sw 0 0
+cfa1494c95eb4750.b none swap sw 0 0
