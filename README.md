@@ -12,7 +12,7 @@ Share what you've got, keep what you need:
 * [acme-client](https://man.openbsd.org/acme-client) - Automatic Certificate Management Environment (ACME) client
   - *Configure:*
     - [`etc/acme`](src/etc/acme)
-    - [`etc/acme/acme-client.conf`](src/etc/acme/acme-client.conf)
+    - [`etc/acme-client.conf`](src/etc/acme-client.conf)
     - [`etc/httpd.conf`](src/etc/httpd.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/relayd.conf`](src/etc/relayd.conf)
@@ -26,7 +26,7 @@ Share what you've got, keep what you need:
     - [`usr/local/bin/get-ocsp.sh`](src/usr/local/bin/get-ocsp.sh)` freedns.afraid.org`
 * [authpf](https://man.openbsd.org/authpf) - authenticating gateway user shell
   - *Configure:*
-    - [`etc/authpf`](src/tc/authpf)
+    - [`etc/authpf`](src/etc/authpf)
     - [`etc/login.conf`](src/etc/login.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/ssh/sshd_config`](src/etc/ssh/sshd_config)
