@@ -80,6 +80,7 @@ Share what you've got, keep what you need:
     - [`etc/hostname.gif0`](src/etc/hostname.gif0)
     - [`etc/hostname.tun0`](src/etc/hostname.tun0)
     - [`etc/hostname.vether0`](src/etc/hostname.vether0)
+    - [`etc/hostname.vlan5`](src/etc/hostname.vlan5)
   - *Usage:*
     - `sh /etc/netstart`
 * [httpd](https://man.openbsd.org/httpd) - HTTP daemon as primary, fallback, and [autoinstall](https://man.openbsd.org/autoinstall)
