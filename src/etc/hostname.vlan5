@@ -5,3 +5,4 @@ vnetid 5
 parent em1
 inet 172.16.5.1 255.255.255.0 172.16.5.255
 inet6 fd80:1fe9:fcee:acdc::ace:face 64
+up
