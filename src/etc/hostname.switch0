@@ -1,0 +1,5 @@
+description "switchd interface"
+addlocal vether0
+#add tap0
+up
+!switchctl connect /dev/switch0
