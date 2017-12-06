@@ -78,6 +78,7 @@ Share what you've got, keep what you need:
     - [`etc/hostname.em2`](src/etc/hostname.em2)
     - [`etc/hostname.enc1`](src/etc/hostname.enc1)
     - [`etc/hostname.gif0`](src/etc/hostname.gif0)
+    - [`etc/hostname.switch0`](src/etc/hostname.switch0)
     - [`etc/hostname.tun0`](src/etc/hostname.tun0)
     - [`etc/hostname.vether0`](src/etc/hostname.vether0)
     - [`etc/hostname.vlan5`](src/etc/hostname.vlan5)
@@ -216,6 +217,17 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start sshd`
+* [switchd](https://man.openbsd.org/switchd) - software-defined networking (SDN) sflow controller
+  - *Configure:*
+    - [`etc/hostname.switch0`](src/etc/hostname.switch0)
+    - [`etc/pf.conf`](src/etc/pf.conf)
+    - [`etc/switchd.conf`](src/etc/switchd.conf)
+  - *Usage:*
+    - `sh /etc/netstart switch0`
+    - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable switchd`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` start switchd`
+    - [`switchctl`](https://man.openbsd.org/switchctl)` connect /dev/switch0`
 * [syslogd](https://man.openbsd.org/syslogd) - log system messages
   - *Configure:*
     - [`etc/newsyslog.conf`](src/etc/newsyslog.conf)

@@ -14,6 +14,7 @@ ntpd_flags=
 rtadvd_flags="em1 em2 athn0"
 sndiod_flags=NO
 sensorsd_flags=
+switchd_flags=
 syslogd_flags="${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log"
 unbound_flags="-v -c /var/unbound/etc/unbound.conf"
 httpd_flags=
