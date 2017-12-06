@@ -217,7 +217,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start sshd`
-* [switchd](http://man.openbsd.org/switchd) - software-defined networking (SDN) sflow controller
+* [switchd](https://man.openbsd.org/switchd) - software-defined networking (SDN) sflow controller
   - *Configure:*
     - [`etc/hostname.switch0`](src/etc/hostname.switch0)
     - [`etc/pf.conf`](src/etc/pf.conf)
