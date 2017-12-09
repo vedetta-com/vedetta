@@ -4,10 +4,12 @@ lladdr random
 inet 10.0.0.1 255.255.255.0 10.0.0.255
 inet6 2001:470:b35c:cafe::ace:face 64
 inet6 alias fd80:1fe9:fcee:cafe::ace:face 64
+mediaopt hostap
+# Full length hex key (0x...), or
+# ifconfig will hash the nwid along with the passphrase to create the hex key
 nwid "OpenBSD AP"
 wpakey "secret"
-media autoselect
-mediaopt hostap
+# List of WLAN channels: wikipedia.org/wiki/List_of_WLAN_channels
 mode 11g
 chan 1
 up
