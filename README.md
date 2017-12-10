@@ -183,8 +183,9 @@ Share what you've got, keep what you need:
     - `tcpdump -neq -ttt -i pflog0`
 * [rebound](https://man.openbsd.org/rebound) - DNS proxy
   - *Configure:*
-    - [`etc/pf.conf`](src/etc/pf.conf)
+    - [`etc/dhclient.conf`](src/etc/dhclient.conf)
     - [`etc/resolv.conf`](src/etc/resolv.conf)
+    - [`etc/pf.conf`](src/etc/pf.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - `dig ipv6.google.com aaaa`
@@ -237,6 +238,8 @@ Share what you've got, keep what you need:
     - [`rcctl`](https://man.openbsd.org/rcctl)` start syslogd`
 * [unbound]() - Unbound DNS validating resolver from root nameservers, with caching and DNS based adblock
   - *Configure:*
+    - [`etc/dhclient.conf`](src/etc/dhclient.conf)
+    - [`etc/resolv.conf`](src/etc/resolv.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
     - [`var/unbound`](src/var/unbound)
