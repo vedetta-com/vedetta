@@ -292,6 +292,20 @@ OpenBSD likes small form factor, low power, lots of ECC memory, AES-NI support, 
 ## Install
 Encryption is the easiest method for media sanitization and disposal. For this reason, it is recommended to use [full disk encryption](https://www.openbsd.org/faq/faq14.html#softraidFDE).
 
+Partitions are important for [security, stability, and integrity](https://www.openbsd.org/faq/faq4.html#Partitioning). A minimum partition layout example for router with binary base, and no packages (comfortable fit on flash memory cards/drives):
+
+| Filesystem | Mount       | Size    |
+|:---------- |:----------- | -------:|
+| a          | /           |    512M |
+| b          | /swap       |   1024M |
+| d          | /var        |    512M |
+| e          | /var/log    |    128M |
+| f          | /tmp        |   1024M |
+| g          | /usr        |   1024M |
+| h          | /usr/local  |     64M |
+| i          | /home       |     16M |
+| *Total*    |             |**4304M**|
+
 ## SSL
 It's best practice to create CAs on a single purpose secure machine, with no network access.
 
