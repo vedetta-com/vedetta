@@ -264,7 +264,7 @@ Sysadmin:
     - [`etc/pf.conf`](src/etc/pf.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`ftp`](https://man.openbsd.org/ftp)` "https://www.openbsd.org/index.html"`
+    - [`ftp`](https://man.openbsd.org/ftp)` -o - "https://www.openbsd.org/donations.html"`
 * [mail](https://man.openbsd.org/mail) - send and receive mail, for daily reading
   - *Usage:*
     - [`mail`](https://man.openbsd.org/mail)
