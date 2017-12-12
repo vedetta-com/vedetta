@@ -1,4 +1,5 @@
 #!/bin/sh
+# Update the DNS based adblock (var/unbound/etc/dnsblock.conf)
 # https://www.filters.com
 # https://github.com/StevenBlack/hosts
 # https://deadc0de.re/articles/unbound-blocking-ads.html
@@ -26,9 +27,9 @@ RCCTL=/usr/sbin/rcctl
 
 hostsurl="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
 
-tmp=/tmp
- 
-hoststmp="${hostsurl##*/}".tmp
+hoststmp="$(mktemp -t ${hostsurl##*/}.XXXXXXXXXX)" || exit 1
+dnsblocktmp="$(mktemp)" || exit 1
+
 dnsblock=dnsblock.conf
 unboundchroot=/var/unbound
 
@@ -41,29 +42,25 @@ error_exit () {
 [ 0 = "$(id -u)" ] || \
     error_exit "$LINENO: ERROR: You are using a non-privileged account."
 
-# Mise en place
-"${RM}" -rf "${tmp}"/"${hoststmp}" "${tmp}"/"${dnsblock}"
-
 # Download
-"${FTP}" -o "${tmp}"/"${hoststmp}" "${hostsurl}" || \
+"${FTP}" -o "${hoststmp}" "${hostsurl}" || \
     error_exit "$LINENO: ERROR: download failed."
 
 # Convert hosts to unbound.conf
-"${CAT}" "${tmp}"/"${hoststmp}" | "${GREP}" '^0\.0\.0\.0' | \
+"${CAT}" "${hoststmp}" | "${GREP}" '^0\.0\.0\.0' | \
     "${AWK}" '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' > \
-    "${tmp}"/"${dnsblock}"
+    "${dnsblocktmp}"
 
 # Install
-"${RM}" -rf "${unboundchroot}"/etc/"${dnsblock}"
-"${CP}" "${tmp}"/"${dnsblock}" "${unboundchroot}"/etc/ || \
+"${RM}" "${unboundchroot}"/etc/"${dnsblock}"
+"${CP}" "${dnsblocktmp}" "${unboundchroot}"/etc/"${dnsblock}" || \
     error_exit "$LINENO: ERROR: ${dnsblock} copy failed."
 "${CHMOD}" 600 "${unboundchroot}"/etc/"${dnsblock}" || exit
 
 # Populate unbound dns block
-#[ $("${CAT}" "${unboundchroot}"/etc/unbound.conf | grep "${dnsblock}") ] && echo "Loading ${dnsblock}"
 "${RCCTL}" stop unbound
 "${RCCTL}" start unbound || \
     error_exit "$LINENO: ERROR: unbound failed."
 
 # Remove temp files
-"${RM}" -rf "${tmp}"/"${hoststmp}" "${tmp}"/"${dnsblock}"
+"${RM}" -rf "${hoststmp}" "${dnsblocktmp}"
