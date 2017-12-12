@@ -170,6 +170,8 @@ Share what you've got, keep what you need:
 * [pf](https://man.openbsd.org/pf) - packet filter with IP based adblock
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
+    - [`usr/local/bin/adhosts.sh`](src/usr/local/bin/adhosts.sh)
+    - [`usr/local/bin/malware.sh`](src/usr/local/bin/malware.sh)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
@@ -193,6 +195,7 @@ Share what you've got, keep what you need:
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/relayd.conf`](src/etc/relayd.conf)
+    - [`usr/local/bin/get-pin.sh`](src/usr/local/bin/get-pin.sh)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable relayd`
@@ -241,6 +244,7 @@ Share what you've got, keep what you need:
     - [`etc/dhclient.conf`](src/etc/dhclient.conf)
     - [`etc/resolv.conf`](src/etc/resolv.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
+    - [`usr/local/bin/dnsblock.sh`](src/usr/local/bin/dnsblock.sh)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
     - [`var/unbound`](src/var/unbound)
   - *Usage:*
