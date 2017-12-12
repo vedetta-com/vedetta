@@ -1,4 +1,5 @@
 #!/bin/sh
+# Update the adhosts IP list (etc/pf.adhosts) from pgl.yoyo.org
 
 #set -eu
 set -o errexit
@@ -17,8 +18,8 @@ CP=/bin/cp
 CHMOD=/bin/chmod
 
 adhostsurl="https://pgl.yoyo.org/adservers/iplist.php?ipformat=&showintro=0&mimetype=plaintext"
-adhoststmp=/tmp/adhosts.tmp
-adhosts=/tmp/adhosts
+adhoststmp=$(mktemp) || exit 1
+adhosts=$(mktemp) || exit 1
 adhostspf=/etc/pf.adhosts
 
 error_exit () {
