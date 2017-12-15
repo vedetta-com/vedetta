@@ -43,12 +43,12 @@ Share what you've got, keep what you need:
     - [`src/tftpboot`](src/tftpboot)
     - [`src/var/www/htdocs/freedns.afraid.org/pub`](src/var/www/htdocs/freedns.afraid.org/pub)
   - *Usage:*
-    - mkdir -p /tftpboot/etc
-    - cd /tftpboot && ftp https://ftp.openbsd.org/pub/OpenBSD/snapshots/amd64/bsd.rd
-    - cp /usr/mdec/pxeboot /tftpboot/
-    - chmod 555 -R /tftpboot
-    - cd /tftpboot && ln -s pxeboot auto_install
-    - echo "boot bsd.rd" > /tftpboot/etc/boot.conf && chmod 444 /tftpboot/etc/boot.conf
+    - `mkdir -p /tftpboot/etc`
+    - `cd /tftpboot && ftp https://ftp.openbsd.org/pub/OpenBSD/snapshots/amd64/bsd.rd`
+    - `cp /usr/mdec/pxeboot /tftpboot/`
+    - `chmod 555 -R /tftpboot`
+    - `cd /tftpboot && ln -s pxeboot auto_install`
+    - `echo "boot bsd.rd" > /tftpboot/etc/boot.conf && chmod 444 /tftpboot/etc/boot.conf`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpd flags \"-l boot.heta.lan -v /tftpboot\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpproxy flags \"-v\"`
