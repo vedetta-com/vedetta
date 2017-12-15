@@ -40,8 +40,8 @@ Share what you've got, keep what you need:
     - [`etc/httpd.conf`](src/etc/httpd.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`var/www/htdocs/boot.vedetta.lan/install.conf`](src/var/www/htdocs/boot.vedetta.lan/install.conf)
-    - [`src/tftpboot`](src/tftpboot)
-    - [`src/var/www/htdocs/freedns.afraid.org/pub`](src/var/www/htdocs/freedns.afraid.org/pub)
+    - [`tftpboot`](src/tftpboot)
+    - [`var/www/htdocs/freedns.afraid.org/pub`](src/var/www/htdocs/freedns.afraid.org/pub)
   - *Usage:*
     - `mkdir -p /tftpboot/etc`
     - `cd /tftpboot && ftp https://ftp.openbsd.org/pub/OpenBSD/snapshots/amd64/bsd.rd`
