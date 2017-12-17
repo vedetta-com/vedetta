@@ -34,14 +34,14 @@ Share what you've got, keep what you need:
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` reload sshd`
     - [`ssh`](https://man.openbsd.org/ssh)` hauth@freedns.afraid.org`
-* [autoinstall](https://man.openbsd.org/autoinstall) - unattended OpenBSD installation and upgrade ([pxeboot](https://man.openbsd.org/pxeboot) example)
+* [autoinstall](https://man.openbsd.org/autoinstall) - unattended OpenBSD installation and upgrade ([pxeboot](https://man.openbsd.org/pxeboot) and [mirror](https://www.openbsd.org/ftp.html) example)
   - *Configure:*
     - [`etc/dhcpd.conf`](src/etc/dhcpd.conf)
     - [`etc/httpd.conf`](src/etc/httpd.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
-    - [`var/www/htdocs/boot.vedetta.lan/install.conf`](src/var/www/htdocs/boot.vedetta.lan/install.conf)
     - [`tftpboot`](src/tftpboot)
-    - [`var/www/htdocs/freedns.afraid.org/pub`](src/var/www/htdocs/freedns.afraid.org/pub)
+    - [`var/www/htdocs/boot.vedetta.lan`](src/var/www/htdocs/boot.vedetta.lan)
+    - [`var/www/pub`](src/var/www/pub)
   - *Usage:*
     - `mkdir -p /tftpboot/etc`
     - `cd /tftpboot && ftp https://ftp.openbsd.org/pub/OpenBSD/snapshots/amd64/bsd.rd`
