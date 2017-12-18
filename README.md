@@ -41,7 +41,7 @@ Share what you've got, keep what you need:
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`tftpboot`](src/tftpboot)
     - [`var/www/htdocs/boot.vedetta.lan`](src/var/www/htdocs/boot.vedetta.lan)
-    - [`var/www/pub`](src/var/www/pub)
+    - `mount host:/path/name /var/www/pub`
   - *Usage:*
     - `mkdir -p /tftpboot/etc`
     - `cd /tftpboot && ftp https://ftp.openbsd.org/pub/OpenBSD/snapshots/amd64/bsd.rd`
