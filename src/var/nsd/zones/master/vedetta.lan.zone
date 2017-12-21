@@ -50,11 +50,14 @@ mobile			IN	A	10.0.0.10
 tablet			IN	A	10.0.0.11
 nfs			IN	AAAA	fd80:1fe9:fcee:bead::bad:face
 nfs			IN	A	192.168.0.80
+relay			IN	AAAA	fd80:1fe9:fcee:1337::ace:babe
+relay			IN	A	10.10.10.11
 ; CNAME Records
 acolyte		3600	IN	CNAME	@
 hostmaster	3600	IN	CNAME	@
 mail		3600	IN	CNAME	@
 ns1		3600	IN	CNAME	@
-ns		3600	IN	CNAME	@
-ntp		3600	IN	CNAME	@
-boot		3600	IN	CNAME	ap
+ns		3600	IN	CNAME	relay
+ntp		3600	IN	CNAME	relay
+boot		3600	IN	CNAME	relay
+fallback	3600	IN	CNAME	@
