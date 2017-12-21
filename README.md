@@ -210,7 +210,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - `dig ipv6.google.com aaaa`
-* [relayd](https://man.openbsd.org/relayd) - relay daemon for loadbalancing, SSL/TLS acceleration, and DNS-sanitizing
+* [relayd](https://man.openbsd.org/relayd) - relay daemon for loadbalancing, SSL/TLS acceleration, DNS-sanitizing, SSH gateway, and transparent HTTP proxy
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/relayd.conf`](src/etc/relayd.conf)
