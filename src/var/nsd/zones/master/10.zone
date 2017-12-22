@@ -15,6 +15,6 @@ $ORIGIN	0.0.10.in-addr.arpa.
 11		IN	PTR	tablet.vedetta.lan.
 $ORIGIN	10.10.10.in-addr.arpa.
 10		IN	PTR	acolyte.vedetta.lan.
-11		IN	PTR	relay.heta.lan.
+11		IN	PTR	relay.vedetta.lan.
 ; vedetta.lan default prefix
 $ORIGIN	10.in-addr.arpa.

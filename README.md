@@ -50,7 +50,7 @@ Share what you've got, keep what you need:
     - `cd /tftpboot && ln -s pxeboot auto_install`
     - `echo "boot bsd.rd" > /tftpboot/etc/boot.conf && chmod 444 /tftpboot/etc/boot.conf`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpd flags \"-l boot.heta.lan -v /tftpboot\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpd flags \"-l boot.vedetta.lan -v /tftpboot\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpproxy flags \"-v\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` restart dhcpd httpd`[`tftpd`](https://man.openbsd.org/tftpd) [`tftpproxy`](https://man.openbsd.org/tftp-proxy)
 * [dhclient](https://man.openbsd.org/dhclient) - Dynamic Host Configuration Protocol (DHCP) client
