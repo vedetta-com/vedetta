@@ -32,6 +32,6 @@ HOME=/var/log
 # clear portknock3 every hour
 #00	*	*	*	*	/sbin/pfctl -q -t portknock3 -T expire 3600
 # schedule
-#0	18	*	*	*	/sbin/pfctl -k label -k sched_ip /dev/null 2>&1
+#0	18	*	*	*	/sbin/pfctl -k label -k sched_ip > /dev/null 2>&1
 # sticky mfs /tmp
 @reboot					/bin/chmod 1777 /tmp

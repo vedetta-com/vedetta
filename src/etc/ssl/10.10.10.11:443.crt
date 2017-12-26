@@ -1,0 +1,2 @@
+# cd /etc/ssl
+# ln -s acme/freedns.afraid.org.fullchain.pem 10.10.10.11:443.crt

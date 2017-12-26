@@ -212,9 +212,17 @@ Share what you've got, keep what you need:
     - `dig ipv6.google.com aaaa`
 * [relayd](https://man.openbsd.org/relayd) - relay daemon for loadbalancing, SSL/TLS acceleration, DNS-sanitizing, SSH gateway, and transparent HTTP proxy
   - *Configure:*
+    - [`etc/acme-client.conf`](src/etc/acme-client.conf)
+    - [`etc/httpd.conf`](src/etc/httpd.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/relayd.conf`](src/etc/relayd.conf)
     - [`usr/local/bin/get-pin.sh`](src/usr/local/bin/get-pin.sh)
+    - `cd `[`/etc/ssl`](src/etc/ssl)
+    - `ln -s acme/freedns.afraid.org.fullchain.pem 10.10.10.11:443.crt`
+    - `ln -s acme/freedns.afraid.org.fullchain.pem fd80:1fe9:fcee:1337::ace:babe:443.crt`
+    - `cd `[`/etc/ssl/private`](src/etc/ssl/private)
+    - `ln -s ../acme/private/freedns.afraid.org.key 10.10.10.11:443.key`
+    - `ln -s ../acme/private/freedns.afraid.org.key fd80:1fe9:fcee:1337::ace:babe:443.key`
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable relayd`
@@ -355,7 +363,8 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 ## Caveats
 * VPN with IKEv2 or IKEv1, not both. *While there are many tecnologies for VPN, only IKEv2 and IKEv1 are standard (considerable effort was put into testing and securing)*
 * OpenIKED is close to supporting the strongSwan Android client
-* relayd does not ocsp, yet
+* relayd does not OCSP, yet
+* httpd without custom 404 (can be patched)
 * 11n is max WiFi mode, [is this enough?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
 * authpf users have sftp access
 
