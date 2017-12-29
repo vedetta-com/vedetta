@@ -1,7 +1,7 @@
 # hauth's rules
 inet_ports="ssh ftp xmpp-client pop3s imaps smtps whois"
 
-pass in log on { lan wlan vether } proto tcp \
+pass in log on { lan wlan } proto tcp \
  from $user_ip to !(self:network) port { $inet_ports } \
  tag AUTHPF_INET
 pass in log on { enc tun } proto tcp \
