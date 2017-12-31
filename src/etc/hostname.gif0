@@ -8,4 +8,3 @@ dest  2001:470:1c:7b8::1
 !route -n add -inet6 default 2001:470:1c:7b8::1
 inet6 alias 2001:470:b35c:ed9e::ace:face 64
 inet6 alias fd80:1fe9:fcee:ed9e::ace:face 64
-!ifconfig $if inet6 delete fe80::6f0:21ff:fe26:dc71
