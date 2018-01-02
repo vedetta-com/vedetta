@@ -77,6 +77,7 @@ Share what you've got, keep what you need:
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/rc.d/dhcp6c`](src/etc/rc.d/dhcp6c)
     - [`etc/rc.d/dhcp6s`](src/etc/rc.d/dhcp6s)
+    - [`etc/rtadvd.conf`](src/etc/rtadvd.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcp6s flags \"-c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1\"`

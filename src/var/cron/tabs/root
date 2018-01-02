@@ -34,6 +34,6 @@ HOME=/var/log
 # schedule starts at 9am
 0	9	*	*	*	/sbin/pfctl -t schedule -T replace -f /etc/pf.schedule > /dev/null 2>&1
 # schedule ends at 5pm
-0	17	*	*	*	/sbin/pfctl -t schedule -T flush && /sbin/pfctl -k label -k schedule > /dev/null 2>&1
+0	17	*	*	*	/sbin/pfctl -t schedule -T flush  > /dev/null 2>&1; /sbin/pfctl -k label -k schedule > /dev/null 2>&1
 # sticky mfs /tmp
 @reboot					/bin/chmod 1777 /tmp
