@@ -365,7 +365,7 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 ## Caveats
 * VPN with IKEv2 or IKEv1, not both. *While there are many tecnologies for VPN, only IKEv2 and IKEv1 are standard (considerable effort was put into testing and securing)*
 * OpenIKED is close to supporting the strongSwan Android client
-* relayd does not OCSP, yet
+* relayd does not support CRL, SNI, nor OCSP (yet)
 * httpd without custom 404 (can be patched)
 * 11n is max WiFi mode, [is this enough?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
 * authpf users have sftp access
