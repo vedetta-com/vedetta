@@ -9,7 +9,8 @@ mediaopt hostap
 # ifconfig will hash the nwid along with the passphrase to create the hex key
 nwid "OpenBSD AP"
 wpakey "secret"
-# https://wikipedia.org/wiki/List_of_WLAN_channels
-mode 11g
+# Select the mode automatically (!) at least 2 antennas are required for 11n
+#-mode
+# Channel (radio frequency) (!) https://wikipedia.org/wiki/List_of_WLAN_channels
 chan 1
 up
