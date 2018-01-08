@@ -105,6 +105,14 @@ Share what you've got, keep what you need:
     - [`etc/hostname.vlan7`](src/etc/hostname.vlan7)
   - *Usage:*
     - `sh /etc/netstart`
+* [hotplugd](https://man.openbsd.org/hotplugd) - devices hot plugging monitor daemon
+  - *Configure:*
+    - [`etc/hotplug/attach`](src/etc/hotplug/attach)
+    - `etc/hotplug/detach`
+    - `chmod 750 /etc/hotplug/{attach,detach}`
+  - *Usage:*
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable hotplugd`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` start hotplugd`
 * [httpd](https://man.openbsd.org/httpd) - HTTP daemon as primary, fallback, and [autoinstall](https://man.openbsd.org/autoinstall)
   - *Configure:*
     - [`etc/httpd.conf`](src/etc/httpd.conf)

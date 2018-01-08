@@ -1,0 +1,22 @@
+#!/bin/sh
+ 
+DEVCLASS=$1 
+DEVNAME=$2
+ 
+case $DEVCLASS in
+2)
+	# disk devices
+	disklabel=`/sbin/disklabel $DEVNAME 2>&1 | \
+	    sed -n '/^label: /s/^label: //p'`
+	case $disklabel in
+	Sony*DSC*)
+		# Sony DSC camera
+		mount -o nodev,nosuid /dev/"$DEVNAME"i /mnt/camera
+		;;
+	esac
+	;;
+3)
+	# network devices; requires hostname.$DEVNAME
+	sh /etc/netstart $DEVNAME
+	;;
+esac
