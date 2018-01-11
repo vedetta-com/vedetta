@@ -251,6 +251,11 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable sensorsd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start sensorsd`
+* [slaacd](https://man.openbsd.org/slaacd) - a stateless address autoconfiguration daemon
+  - *Configure:*
+    - [`ifconfig`](https://man.openbsd.org/ifconfig)` em0 inet6 autoconf`
+  - *Usage:*
+    - [`slaacctl`](https://man.openbsd.org/slaacctl)` show interface em0`
 * [sshd](https://man.openbsd.org/sshd) - OpenSSH SSH daemon with internal-sftp
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
