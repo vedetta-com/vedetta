@@ -13,8 +13,8 @@
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
-#AllowUsers horia@10.10.100.*
-AllowGroups horia hauth hsftp
+#AllowUsers puffy@10.10.100.*
+AllowGroups puffy pauth psftp
 
 #HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_dsa_key
@@ -101,16 +101,16 @@ Subsystem	sftp	internal-sftp # internal-sftp for ChrootDirectory
 #	PermitTTY no
 #	ForceCommand cvs server
 
-Match User horia
+Match User puffy
         AllowTcpForwarding yes
 #       PermitOpen host:port
 
-Match User hauth
+Match User pauth
         AllowTcpForwarding no
 	ClientAliveInterval 15 # default 0
 	ClientAliveCountMax 3 # default 3
 
-Match User hsftp
+Match User psftp
 	AllowTcpForwarding no
 	ClientAliveInterval 15 # default 0
 	ClientAliveCountMax 3 # default 3

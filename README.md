@@ -33,7 +33,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` reload sshd`
-    - [`ssh`](https://man.openbsd.org/ssh)` hauth@freedns.afraid.org`
+    - [`ssh`](https://man.openbsd.org/ssh)` pauth@freedns.afraid.org`
 * [autoinstall](https://man.openbsd.org/autoinstall) - unattended OpenBSD installation and upgrade ([pxeboot](https://man.openbsd.org/pxeboot) and [mirror](https://www.openbsd.org/ftp.html) example)
   - *Configure:*
     - [`etc/dhcpd.conf`](src/etc/dhcpd.conf)
