@@ -1,4 +1,4 @@
-wheel:*:0:root,horia
+wheel:*:0:root,puffy
 daemon:*:1:daemon
 kmem:*:2:root
 sys:*:3:root
@@ -76,9 +76,9 @@ _sndiop:*:110:
 dialer:*:117:
 nogroup:*:32766:
 nobody:*:32767:
-horia:*:1000:
-hauth:*:1001:
-hsftp:*:1002:
+puffy:*:1000:
+pauth:*:1001:
+psftp:*:1002:
 wobj:*:21:
 _switchd:*:49:
 _traceroute:*:50:
