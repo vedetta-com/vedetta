@@ -19,9 +19,10 @@ syslogd_flags="${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log"
 hotplugd_flags=
 sensorsd_flags=
 pf=YES
+# IKEv1 or IKEv2
+#ipsec=YES # Load ipsec.conf(5)
 # IKEv2 
 iked_flags="-6"
 # or IKEv1
-#ipsec=YES # Load ipsec.conf(5)
 #isakmpd_flags="-K" # Avoid keynote(4) policy checking
 #npppd_flags=

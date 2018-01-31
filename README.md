@@ -138,6 +138,7 @@ Share what you've got, keep what you need:
     - `etc/iked`
     - [`etc/iked.conf`](src/etc/iked.conf)
     - [`etc/iked-vedetta.conf`](src/etc/iked-vedetta.conf)
+    - [`etc/ipsec.conf`](src/etc/ipsec.conf)
     - [`etc/pf.conf`](src/etc/pf.conf)
     - `etc/ssl/ikeca.cnf`
     - `etc/ssl/vedetta`
@@ -153,6 +154,7 @@ Share what you've got, keep what you need:
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta certificate mobile.vedetta.lan revoke`
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta key mobile.vedetta.lan delete`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable ipsec`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set iked flags \"-6\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start iked`
 * IKEv1 VPN (IPv4)
