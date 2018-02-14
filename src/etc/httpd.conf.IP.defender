@@ -1,0 +1,19 @@
+# IP defender (!) must be last server
+server "nonexistent" {
+	alias match "%d+%.%d+%.%d+%.%d+"
+	alias match "%w*::*"
+
+	listen on $fb1_IPv4 port http
+	listen on $fb1_IPv4 port https
+	listen on $fb1_IPv6 port http
+	listen on $fb1_IPv6 port https
+
+	tcp nodelay
+
+	log syslog
+
+	block # nothing to see here
+
+	root "/nonexistent"
+	directory no index
+}

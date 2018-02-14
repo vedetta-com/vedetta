@@ -1,0 +1,22 @@
+#
+# Map NTP to a rdr rule
+#
+redirect "ntp" {
+	listen on $rly_IPv4 udp port ntp
+
+	# tagged RELAYD in pf.conf
+	match pftag RELAYD
+
+#	forward to <ntphosts> port ntp check tcp
+	forward to <fallback> port ntp check icmp
+}
+
+redirect "ntp6" {
+	listen on $rly_IPv6 udp port ntp
+
+	# tagged RELAYD in pf.conf
+	match pftag RELAYD
+
+#	forward to <ntphosts6> port ntp check tcp
+	forward to <fallback6> port ntp check icmp
+}
