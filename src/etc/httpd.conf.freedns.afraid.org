@@ -1,0 +1,47 @@
+server "freedns.afraid.org" {
+#	alias ""
+
+	listen on $fb1_IPv4 port http
+	listen on $fb1_IPv4 tls port https
+	listen on $fb1_IPv6 port http
+	listen on $fb1_IPv6 tls port https
+
+	hsts subdomains
+
+	tls certificate "/etc/ssl/acme/freedns.afraid.org.fullchain.pem"
+	tls key "/etc/ssl/acme/private/freedns.afraid.org.key"
+	# (!) see usr/local/bin/get-ocsp.sh
+	tls ocsp "/etc/ssl/acme/freedns.afraid.org.ocsp.resp.der"
+
+	tcp nodelay
+	connection { max requests 500, timeout 3600 }
+
+	log { access "access.log", error "error.log" }
+
+	block
+
+	include "/etc/httpd.conf.location.acme" # ACME challenge
+	include "/etc/httpd.conf.location.mirror" # autoinstall mirror
+
+	# Path-based cache busting: route all requests for "/css-20170620/style.css" to "/css/style.css"
+	location match "^/css%-2%d%d%d%d%d%d%d/.+%..+" {
+		root "/htdocs/freedns.afraid.org/css"
+		root strip 1
+		pass
+	}
+	location match "^/js%-2%d%d%d%d%d%d%d/.+%..+" {
+		root "/htdocs/freedns.afraid.org/js"
+		root strip 1
+		pass
+	}
+	location match "^/img%-2%d%d%d%d%d%d%d/.+%..+" {
+		root "/htdocs/freedns.afraid.org/img"
+		root strip 1
+		pass
+	}
+
+	location "/*" {
+		root "/htdocs/freedns.afraid.org"
+		pass
+	}
+}

@@ -1,0 +1,22 @@
+# Serve up ftp space mounted in /var/www/pub
+#
+# Mirror for distribution sets (!) https://www.openbsd.org/httpd.conf
+location "/pub/OpenBSD/*" {
+	root "/"
+	directory auto index
+	pass
+}
+# Return error 404 (default: 403)
+location "/pub/" {
+	root "/nonexistent"
+	directory no index  
+	pass
+}
+# Send man.cgi requests to man.openbsd.org   
+location "/cgi-bin/man.cgi*" {
+	block return 301 "https://man.openbsd.org$REQUEST_URI"
+}
+# Send cvsweb requests to cvsweb.openbsd.org
+location "/cgi-bin/cvsweb*" {
+	block return 301 "https://cvsweb.openbsd.org$REQUEST_URI"
+}

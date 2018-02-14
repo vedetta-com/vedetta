@@ -1,0 +1,24 @@
+#
+# Map http to a rdr rule
+#
+redirect www {
+	listen on $ext_IPv4 tcp port http
+	listen on $rly_IPv4 tcp port http
+
+	# tagged RELAYD in pf.conf
+	match pftag RELAYD
+
+#	forward to <webhosts> check http "/" code 200
+	forward to <fallback> check http "/" code 200
+}
+
+redirect www6 {
+	listen on $ext_IPv6 tcp port http
+	listen on $rly_IPv6 tcp port http
+
+	# tagged RELAYD in pf.conf
+	match pftag RELAYD
+
+#	forward to <webhosts6> check http "/" code 200
+	forward to <fallback6> check http "/" code 200
+}

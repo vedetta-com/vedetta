@@ -1,0 +1,58 @@
+#
+# Relay and protocol for a transparent HTTP proxy
+#
+http protocol httpfilter {
+	# Return HTTP/HTML error pages to the client
+	return error
+
+	# Personalize
+	match request header set "User-Agent" value "OpenBSD/relayd"
+	match request header set "Referer" value "https://www.openbsd.org/"
+
+	# Block disallowed sites
+	match request label "URL filtered!"
+	block request quick url "www.example.com/" value "*"
+
+	# Multiple keys can be loaded from a file that contains one key per line
+#	match label "Torrent is banned!"
+#	block request quick url file "/etc/relayd.bittorrent" value "*"
+
+#	match label "Torrent is banned!"
+#	block response quick header "Content-Type" value "application/x-bittorrent"
+
+	# Block disallowed browsers
+	match request label "Please try a <em>different Browser</em>"
+	block request quick header "User-Agent" \
+		value "Mozilla/4.0 (compatible; MSIE *"
+
+	# Block some well-known Instant Messengers
+	match request label "Instant messenger disallowed!"
+	block response quick header "Content-Type" \
+		value "application/x-msn-messenger"
+	block response quick header "Content-Type" value "app/x-hotbar-xip20"
+	block response quick header "Content-Type" value "application/x-icq"
+	block response quick header "Content-Type" value "AIM/HTTP"
+	block response quick header "Content-Type" \
+		value "application/x-comet-log"
+
+	# JavaScript off
+#	match request label "JavaScript off"
+#	block response quick header "Content-Type" value "*/*javascript"
+#	block request quick path "*.js"
+
+	# CSS off
+#	match request label "CSS off!"
+#	block response quick header "Content-Type" value "text/css"
+#	block request quick path "*.css"
+}
+
+relay httpproxy {
+	# Listen on localhost, accept diverted connections from pf(4)
+	listen on $rly_IPv4 port 8080
+	listen on $rly_IPv6 port 8080
+
+	protocol httpfilter
+
+	# Forward to the original target host
+	forward to destination
+}

@@ -1,0 +1,18 @@
+# autoinstall
+server "boot.vedetta.lan" {
+	listen on $fb1_IPv4 port http
+	listen on $fb1_IPv6 port http
+
+	tcp nodelay
+	connection { max requests 500, timeout 3600 }
+
+	log syslog
+
+	block
+
+	location "/*" {
+		root "/htdocs/boot.vedetta.lan"
+		directory auto index
+		pass
+	}
+}

@@ -1,0 +1,44 @@
+# Data interchange
+#application/json			json map topojson
+application/ld+json			jsonld
+application/vnd.geo+json		geojson
+#application/xml			rdf xml
+
+# Manifest files
+application/manifest+json		webmanifest
+application/x-web-app-manifest+json	webapp
+text/cache-manifest			appcache
+
+# Media files
+#audio/mp4				aac f4a f4b m4a
+#audio/ogg				oga ogg opus
+audio/x-wav				wav
+image/jxr				jxr hdp wdp
+#image/x-icon				cur ico
+video/ogg				ogv
+
+# Microsoft Office
+application/vnd.openxmlformats-officedocument.wordprocessingml.document		docx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet		xlsx
+application/vnd.openxmlformats-officedocument.presentationml.presentation	pptx
+
+# Web fonts
+application/font-woff2			woff2
+# https://mimesniff.spec.whatwg.org/#matching-a-font-type-pattern
+application/x-font-ttf			ttc ttf
+#font/opentype				otf
+
+# Other
+#application/octet-stream		bin deb dll dmg exe img iso msi msm msp safariextz
+application/x-bb-appworld		bbaw
+application/x-bittorrent		torrent
+application/x-chrome-extension		crx
+application/x-opera-extension		oex
+application/xslt+xml			xsl
+text/markdown				md
+text/vcard				vcard vcf
+text/vnd.rim.location.xloc		xloc
+text/vtt				vtt
+
+# Necessary to ensure patch files show up as text not binary
+text/plain				sig

@@ -1,0 +1,31 @@
+#
+# Relay and protocol for simple TCP forwarding on layer 7
+#
+protocol sshtcp {
+	# The TCP_NODELAY option is required for "smooth" terminal sessions
+	tcp { nodelay, socket buffer 65536 }
+}
+
+relay sshgw {
+	# Run as a simple TCP relay
+	listen on $ext_IPv4 port 2222
+	listen on $rly_IPv4 port 2222
+
+	protocol sshtcp
+
+	# Forward to the shared carp(4) address of an internal gateway
+#	forward to $ssh1_IPv4 port ssh
+	forward to <fallback> port ssh
+}
+
+relay sshgw6 {
+	# Run as a simple TCP relay
+	listen on $ext_IPv6 port 2222
+	listen on $rly_IPv6 port 2222
+
+	protocol sshtcp
+
+	# Forward to the shared carp(4) address of an internal gateway
+#	forward to $ssh1_IPv6 port ssh
+	forward to <fallback6> port ssh
+}

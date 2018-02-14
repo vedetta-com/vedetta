@@ -1,0 +1,24 @@
+#
+# DNS-sanitizing protocol: replace requested IDs in the DNS header with random values, and layer 7 loadbalancing
+#
+dns protocol dns
+
+relay dns {
+	listen on $rly_IPv4 port domain
+
+	# Anchor
+	protocol dns
+
+#	forward to <dnshosts> port domain mode loadbalance check tcp
+	forward to <fallback> port domain check tcp
+}
+
+relay dns6 {
+	listen on $rly_IPv6 port domain
+
+	# Anchor
+	protocol dns
+
+#	forward to <dnshosts6> port domain mode loadbalance check tcp
+	forward to <fallback6> port domain check tcp
+}
