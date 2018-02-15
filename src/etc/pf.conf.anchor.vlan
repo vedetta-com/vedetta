@@ -1,0 +1,7 @@
+# VLAN e.g.
+match log on vlan5 tag VLAN5
+match log on vlan7 tag VLAN7
+
+# relayd
+pass out log proto { tcp udp } \
+ from (self) group _relayd

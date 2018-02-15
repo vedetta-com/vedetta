@@ -1,0 +1,37 @@
+# VPN (IKEv1 and IKEv2)
+anchor "vpn_if" on { egress lan wlan } proto { esp udp } {
+ # Allow ESP encapsulated IPsec traffic
+ pass in  log proto esp \
+  to   { (egress) (lan) (wlan) }
+ pass out log proto esp \
+  from { (egress) (lan) (wlan) }
+
+ # Only isakmp (500) for IPsec config before l2tp (1701)
+ # Enable NAT transversal (4500)
+ pass in log proto udp \
+  to   { (egress) (lan) (wlan) } port {isakmp, ipsec-nat-t}
+ pass out log proto udp \
+  from { (egress) (lan) (wlan) } port {isakmp, ipsec-nat-t}
+}
+
+anchor "vpn_enc" on enc proto { ipencap udp } {
+ # IP-in-IP traffic flowing between gateways on the enc(4) interface
+ pass in  log proto ipencap \
+  to   { (egress) (lan) (wlan) } keep state (if-bound)
+ pass out log proto ipencap \
+  from { (egress) (lan) (wlan) } keep state (if-bound)
+
+ # Filter unencrypted VPN traffic on the enc(4) interface
+ pass in  log proto udp \
+  to   { (egress) (lan) (wlan) } port l2tp keep state (if-bound)
+ pass out log proto udp \
+  from { (egress) (lan) (wlan) } port l2tp keep state (if-bound)
+}
+
+anchor "vpn_echo" in on { enc tun } proto tcp to port echo {
+ # https://developer.android.com/reference/java/net/InetAddress.html#isReachable(int)
+ pass in log on { enc tun } proto tcp  \
+  to { (egress) (lan) (wlan) (vether) (tun) (enc) } port echo \
+  keep state (if-bound) \
+  tagged VPN
+}
