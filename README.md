@@ -386,7 +386,7 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 * authpf users have sftp access
 
 ## Support
-Via [issues](https://github.com/vedetta-com/vedetta/issues) and #openbsd:[matrix.org](https://matrix.org/)
+Via [issues](https://github.com/vedetta-com/vedetta/issues)
 
 ## Contribute
 Show us your fork!
