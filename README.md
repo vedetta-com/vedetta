@@ -340,7 +340,7 @@ OpenBSD likes small form factor, low-power, lots of ECC memory, AES-NI support, 
 ## Install
 Encryption is the easiest method for media sanitization and disposal. OpenBSD supports [full disk encryption](https://www.openbsd.org/faq/faq14.html#softraidFDE) using a [keydisk](https://www.openbsd.org/faq/faq14.html#softraidFDEkeydisk) (e.g. a USB stick).
 
-Partitions are important for [security, stability, and integrity](https://www.openbsd.org/faq/faq4.html#Partitioning). A minimum partition layout example for router with (upgrade itself) binary base, and no packages (comfortable fit on flash memory cards/drives):
+Partitions are important for [security, stability, and integrity](https://www.openbsd.org/faq/faq4.html#Partitioning). A minimum partition layout [example for router](src/var/www/htdocs/boot.vedetta.lan/disklabel.min) with (upgrade itself) binary base, and no packages (comfortable fit on flash memory cards/drives):
 
 | Filesystem | Mount       | Size    |
 |:---------- |:----------- | -------:|
@@ -372,7 +372,7 @@ Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
 Detect tampered keyfiles or man in the middle attacks with [ssh-keyscan](http://man.openbsd.org/ssh-keyscan).
 
 ## Firewall
-Guests can use the DNS nameserver to access the ad-free web, while authenticated users gain desired permissions. It's best to authenticate an IP after connecting to VPN. There are three users in this one person example: one for wheel, one for sftp, and one for authpf.
+Guests can use the DNS nameserver to access the ad-free web, while authenticated users gain desired permissions. It's best to authenticate an IP after connecting to VPN. There are three users in this one person scenario: one for wheel, one for sftp, and one for authpf.
 
 ## Performance
 Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce wear and tear, as well as to speed up the system. Remember to set the [sticky bit](https://man.openbsd.org/chmod.1#1000) on mfs /tmp, see [etc/fstab](src/etc/fstab).
