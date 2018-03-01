@@ -24,6 +24,7 @@ HOME=/var/log
 20	2	1,14	*	*	/usr/sbin/unbound-anchor -a "/var/unbound/db/root.key" && chown _unbound:_unbound /var/unbound/db/root.key
 20	4	1	May,Nov	*	/usr/bin/ftp -a -o /var/unbound/etc/root.hints ftp://FTP.INTERNIC.NET/domain/named.cache && /usr/sbin/rcctl restart unbound
 20	6	*	*	*	/usr/sbin/acme-client freedns.afraid.org && /usr/sbin/rcctl restart relayd && /usr/local/bin/get-ocsp.sh freedns.afraid.org
+20	8	*	*	*	syspatch -c
 # schedule starts at 9am
 0	9	*	*	*	/sbin/pfctl -t schedule -T replace -f /etc/pf.schedule > /dev/null 2>&1
 # schedule ends at 5pm
