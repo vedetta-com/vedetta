@@ -1,3 +1,4 @@
 -inet
 -inet6
 dhcp
+#inet6 autoconf
