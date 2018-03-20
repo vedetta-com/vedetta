@@ -283,7 +283,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`rcctl`](https://man.openbsd.org/rcctl)` set syslogd flags \"\${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log\"`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start syslogd`
-* [unbound]() - Unbound DNS validating resolver from root nameservers, with caching and DNS based adblock
+* [unbound](https://man.openbsd.org/unbound) - Unbound DNS validating resolver from root nameservers, with caching and DNS based adblock
   - *Configure:*
     - [`etc/dhclient.conf`](src/etc/dhclient.conf)
     - [`etc/resolv.conf`](src/etc/resolv.conf)
