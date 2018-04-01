@@ -258,6 +258,16 @@ Share what you've got, keep what you need:
     - [`ifconfig`](https://man.openbsd.org/ifconfig)` em0 inet6 autoconf`
   - *Usage:*
     - [`slaacctl`](https://man.openbsd.org/slaacctl)` show interface em0`
+* [smtpd](https://man.openbsd.org/smtpd) - Simple Mail Transfer Protocol daemon, see [Caesonia](https://github.com/vedetta-com/caesonia/)
+  - *Configure:*
+    - [`etc/mail/aliases`](src/etc/mail/aliases)
+    - [`etc/mail/smtpd.conf`](src/etc/mail/smtpd.conf)
+    - `touch `[`/etc/mail/secrets`](src/etc/mail/secrets)
+    - `chmod 640 /etc/mail/secrets`
+    - `chown root:_smtpd /etc/mail/secrets`
+    - `echo "puffy puffy@example.com:password" > /etc/mail/secrets`
+  - *Usage:*
+    - [`rcctl`](https://man.openbsd.org/rcctl)` restart smtpd`
 * [sshd](https://man.openbsd.org/sshd) - OpenSSH SSH daemon with internal-sftp
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
