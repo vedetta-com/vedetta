@@ -1,5 +1,6 @@
 -inet
 -inet6
+-tunnel
 description "Hurricane Electric IPv6 tunnel"
 mtu 1480
 tunnel $(ifconfig egress | awk '$1 ~ /^inet$/{print $2;exit;}') 216.66.38.58
