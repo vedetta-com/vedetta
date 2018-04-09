@@ -30,4 +30,4 @@ HOME=/var/log
 # schedule ends at 5pm
 0	17	*	*	*	pfctl -t schedule -T flush  > /dev/null 2>&1; /sbin/pfctl -k label -k schedule > /dev/null 2>&1
 # sticky mfs /tmp
-@reboot					chmod 1777 /tmp
+@reboot					chmod 1777 /tmp; switchctl connect /dev/switch0
