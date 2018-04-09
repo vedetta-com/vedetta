@@ -18,7 +18,6 @@ switchd_flags=
 syslogd_flags="${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log"
 hotplugd_flags=
 sensorsd_flags=
-pf=YES
 # IKEv1 or IKEv2
 #ipsec=YES # Load ipsec.conf(5)
 # IKEv2 
