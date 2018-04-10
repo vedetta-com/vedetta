@@ -22,7 +22,7 @@ http protocol https {
 	# (!) Non-standard
 #	match header set "Keep-Alive" value "$TIMEOUT"
 
-        # Anonimize (opt-in data collection and tracking)
+	# Anonimize (opt-in data collection and tracking)
 	match response header set "Server" value "OpenBSD relayd"
 	match response header remove "X-Powered-By"
 
