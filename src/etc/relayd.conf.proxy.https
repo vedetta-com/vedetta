@@ -1,0 +1,24 @@
+http protocol httpsfilter {
+	return error
+	match header set "Connection" value "close"
+
+	pass
+#	pass quick url file "/etc/relayd.d/custom_whitelist"
+#	block url file "/etc/relayd.d/custom_blacklist"
+#	include "/etc/relayd.d/auto_blacklist"
+
+	tls ca key "/etc/ssl/relayd/private/ca.key" password "AvenaCrucio"
+	tls ca cert "/etc/ssl/relayd/ca.crt" # import on client
+}
+
+relay tlsinspect {
+	# Listen on localhost, accept diverted connections from pf(4)
+	listen on 127.0.0.1 port 8443 tls
+	listen on ::1 port 8443 tls
+
+	protocol httpsfilter
+
+	# Forward to the original target host
+	forward with tls to destination
+}
+
