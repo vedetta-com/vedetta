@@ -222,7 +222,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - `dig ipv6.google.com aaaa`
-* [relayd](https://man.openbsd.org/relayd) - relay daemon for loadbalancing, SSL/TLS acceleration, DNS-sanitizing, SSH gateway, and transparent HTTP proxy
+* [relayd](https://man.openbsd.org/relayd) - relay daemon for loadbalancing, SSL/TLS acceleration, DNS-sanitizing, SSH gateway, transparent HTTP proxy, and TLS inspection ([MITM](https://github.com/vedetta-com/vedetta/issues/82#issuecomment-363907251))
   - *Configure:*
     - [`etc/acme-client.conf`](src/etc/acme-client.conf)
     - [`etc/httpd.conf`](src/etc/httpd.conf)
@@ -235,10 +235,24 @@ Share what you've got, keep what you need:
     - `cd `[`/etc/ssl/private`](src/etc/ssl/private)
     - `ln -s ../acme/private/freedns.afraid.org.key 10.10.10.11:443.key`
     - `ln -s ../acme/private/freedns.afraid.org.key fd80:1fe9:fcee:1337::ace:babe:443.key`
+    - `mkdir -p /etc/ssl/relayd/private`
+    - `openssl req -x509 -days 365 -newkey rsa:2048 -keyout /etc/ssl/relayd/private/ca.key -out /etc/ssl/relayd/ca.crt`
+    - `echo 'subjectAltName=DNS:relay.vedetta.lan' > /etc/ssl/relayd/server.ext`
+    - `openssl genrsa -out /etc/ssl/relayd/private/relay.vedetta.lan.key 2048`
+    - `openssl req -new -key /etc/ssl/relayd/private/relay.vedetta.lan.key -out /etc/ssl/relayd/private/relay.vedetta.lan.csr -nodes`
+    - `openssl x509 -sha256 -req -days 365 -in /etc/ssl/relayd/private/relay.vedetta.lan.csr -CA /etc/ssl/relayd/ca.crt -CAkey /etc/ssl/relayd/private/ca.key -CAcreateserial -extfile /etc/ssl/relayd/server.ext -out /etc/ssl/relayd/relay.vedetta.lan.crt`
+    - `cd /etc/ssl`
+    - `ln -s relayd/relay.vedetta.lan.crt 127.0.0.1.crt`
+    - `ln -s relayd/relay.vedetta.lan.crt ::1.crt`
+    - `cd /etc/ssl/private`
+    - `ln -s ../relayd/private/relay.vedetta.lan.key 127.0.0.1.key`
+    - `ln -s ../relayd/private/relay.vedetta.lan.key ::1.key`
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable relayd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start relayd`
+    - [`pfctl`](https://man.openbsd.org/pfctl)` -T add -t httpfilter $ip`
+    - [`pfctl`](https://man.openbsd.org/pfctl)` -T add -t tlsinspect $ip`
 * [rtadvd](https://man.openbsd.org/rtadvd) - router advertisement daemon
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
