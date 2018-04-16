@@ -132,6 +132,10 @@ http protocol https {
 
 	# Default
 	tls { no client-renegotiation, cipher-server-preference }
+	# Cipher Strength
+	tls ciphers "ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA"
+	# Key Exchange
+	tls ecdhe "P-384"
 }
 
 relay wwwtls {
