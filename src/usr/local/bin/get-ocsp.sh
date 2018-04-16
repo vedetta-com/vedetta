@@ -17,8 +17,7 @@ ftp -o "${DIR}"/letsencryptauthorityx3.pem https://letsencrypt.org/certs/letsenc
 # It should not be used unless the OCSP server does not support the use of OCSP nonces
 ocspcheck -N \
           -C "${DIR}"/letsencryptauthorityx3.pem \
-          -o "${DIR}"/"${SITE}".ocsp.resp.new \
-          "${DIR}"/"${SITE}".fullchain.pem && \
- rcctl restart httpd || \
- logger "ocspcheck fail for ${SITE}.fullchain.pem"
-
+          -o "${DIR}"/"${SITE}".ocsp.resp.der \
+          "${DIR}"/"${SITE}".fullchain.pem \
+&& rcctl restart httpd \
+|| logger "ocspcheck fail for ${SITE}.fullchain.pem"
