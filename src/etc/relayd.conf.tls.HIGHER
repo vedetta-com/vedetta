@@ -1,4 +1,4 @@
 # Cipher Strength <https://man.openbsd.org/SSL_CTX_set_cipher_list>
-tls ciphers "HIGH:!AES128:!CAMELLIA128:!aNULL" # default: "HIGH:!aNULL"
+tls ciphers "HIGH:!AES128:!kRSA:!aNULL" # default: "HIGH:!aNULL"
 # Key Exchange <https://man.openbsd.org/tls_config_set_ecdhecurves>
 tls ecdhe "P-384,P-256,X25519" # default: "X25519,P-256,P-384"
