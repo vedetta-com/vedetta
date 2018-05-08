@@ -412,5 +412,5 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 Via [issues](https://github.com/vedetta-com/vedetta/issues) and [#vedetta:matrix.org](https://riot.im/app/#/room/#vedetta:matrix.org)
 
 ## Contribute
-Show us your [fork](https://github.com/vedetta-com/vedetta#fork-destination-box)!
+Want to help out? :star: [Fork this repo](https://github.com/vedetta-com/vedetta/fork) :star:
 
