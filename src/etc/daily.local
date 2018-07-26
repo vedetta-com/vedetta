@@ -1,0 +1,3 @@
+next_part "Let's Encrypt \"freedns.afraid.org\":"
+acme-client -v freedns.afraid.org && rcctl restart httpd relayd
+/usr/local/bin/get-ocsp.sh freedns.afraid.org && rcctl restart httpd
