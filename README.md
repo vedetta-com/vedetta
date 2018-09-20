@@ -50,8 +50,8 @@ Share what you've got, keep what you need:
     - `cd /tftpboot && ln -s pxeboot auto_install`
     - `echo "boot bsd.rd" > /tftpboot/etc/boot.conf && chmod 444 /tftpboot/etc/boot.conf`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpd flags \"-l boot.vedetta.lan -v /tftpboot\"`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpproxy flags \"-v\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpd flags -l boot.vedetta.lan -v /tftpboot`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set tftpproxy flags -v`
     - [`rcctl`](https://man.openbsd.org/rcctl)` restart dhcpd httpd`[`tftpd`](https://man.openbsd.org/tftpd) [`tftpproxy`](https://man.openbsd.org/tftp-proxy)
 * [dhclient](https://man.openbsd.org/dhclient) - Dynamic Host Configuration Protocol (DHCP) client
   - *Configure:*
@@ -68,7 +68,7 @@ Share what you've got, keep what you need:
     - [`etc/pf.conf`](src/etc/pf.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcpd flags \"athn0 em1 em2\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcpd flags athn0 em1 em2`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start dhcpd`
 * (optional) [wide-dhcpv6](https://github.com/openbsd/ports/tree/master/net/wide-dhcpv6) - client and server for the WIDE DHCPv6 protocol
   - *Configure:*
@@ -80,15 +80,15 @@ Share what you've got, keep what you need:
     - [`etc/rtadvd.conf`](src/etc/rtadvd.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcp6s flags \"-c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcp6s flags -c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start dhcp6s`
 * [ftp-proxy](https://man.openbsd.org/ftp-proxy) - Internet File Transfer Protocol proxy daemon
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set ftp-proxy flags \"-b 10.10.10.10 -T FTP_PROXY\"`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set ftp-proxy6 flags \"-b fd80:1fe9:fcee:1337::ace:face -T FTP_PROXY6\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set ftp-proxy flags -b 10.10.10.10 -T FTP_PROXY`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set ftp-proxy6 flags -b fd80:1fe9:fcee:1337::ace:face -T FTP_PROXY6`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start ftp-proxy ftp-proxy6`
 * [hostname.if](https://man.openbsd.org/hostname.if) - interface-specific configuration files with Dual IP stack implementation
   - *Configure:*
@@ -155,7 +155,7 @@ Share what you've got, keep what you need:
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta key mobile.vedetta.lan delete`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable ipsec`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set iked flags \"-6\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set iked flags -6`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start iked`
 * IKEv1 VPN (IPv4)
   - *Configure:*
@@ -179,7 +179,7 @@ Share what you've got, keep what you need:
     - [`ikectl`](https://man.openbsd.org/ikectl)` ca vedetta key mobile.vedetta.lan delete`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` enable ipsec npppd`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set isakmpd flags \"-K\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set isakmpd flags -K`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start npppd isakmpd`
     - [`ipsecctl`](https://man.openbsd.org/ipsecctl)` -d -f /etc/ipsec-vedetta.conf`
 * [nsd](https://man.openbsd.org/nsd) - Name Server Daemon (NSD) as authoritative DNS nameserver for LAN
@@ -188,7 +188,7 @@ Share what you've got, keep what you need:
     - [`var/nsd`](src/var/nsd)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set nsd flags \"-c /var/nsd/etc/nsd.conf\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set nsd flags -c /var/nsd/etc/nsd.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start nsd`
 * [ntpd](https://man.openbsd.org/ntpd) - Network Time Protocol daemon
   - *Configure:*
@@ -259,7 +259,7 @@ Share what you've got, keep what you need:
     - [`etc/rtadvd.conf`](src/etc/rtadvd.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set rtadvd flags \"athn0 em1 em2\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set rtadvd flags athn0 em1 em2`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start rtadvd`
 * [sensorsd](https://man.openbsd.org/sensorsd) - hardware sensors monitor
   - *Configure:*
@@ -305,7 +305,7 @@ Share what you've got, keep what you need:
     - [`etc/newsyslog.conf`](src/etc/newsyslog.conf)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
   - *Usage:*
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set syslogd flags \"\${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` set syslogd flags \${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start syslogd`
 * [unbound](https://man.openbsd.org/unbound) - Unbound DNS validating resolver from root nameservers, with caching and DNS based adblock
   - *Configure:*
@@ -317,7 +317,7 @@ Share what you've got, keep what you need:
     - [`var/unbound`](src/var/unbound)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set unbound flags \"-v -c /var/unbound/etc/unbound.conf\"`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable unbound`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start unbound`
 
 Sysadmin:
