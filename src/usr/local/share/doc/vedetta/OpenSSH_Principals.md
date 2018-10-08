@@ -55,7 +55,7 @@ After the DNS zone propagates, SSH fingerprints can be verified by a DNSSEC awar
 laptop$ ssh -o "VerifyHostKeyDNS ask" puffy@mercury.example.com
 ```
 
-In addition, the configuration option "VisualHostKey yes" provides "random art" on every login, for comparison:
+In addition, the configuration option "VisualHostKey yes" generates "random art" on every login, for comparison:
 ```console
 laptop$ ssh -o "VisualHostKey yes" puffy@mercury.example.com
 +-[ED25519-CERT]--+
@@ -85,11 +85,11 @@ laptop$ cat ~/.ssh/id_ed25519.pub | ssh puffy@mercury.example.com "cat >> .ssh/a
 
 As more systems and users are added to the mix, it becomes cumbersome to manage and keep remote access secure solely with the TOFU model.
 
-To scale, OpenSSH provides a mechanism for using a trusted third party in the form of Certificate Authority (CA).
+To scale, OpenSSH implements a mechanism for using a trusted third party in the form of Certificate Authority (CA).
 
 ## Principals
 
-While the concept is similar to X.509 (commonly used in TLS), OpenSSH certificates are a different format. They contain much less information, which doesn't mean they are less useful. In fact, OpenSSH certificates provide fine-grained control to local users and hosts with security principal.
+While the concept is similar to X.509 (commonly used in TLS), OpenSSH certificates are a different format. They contain much less information, which doesn't mean they are less useful. In fact, OpenSSH certificates allow fine-grained control to local users and hosts with security principal.
 
 OpenSSH provides both identification and authentication of hosts and users, which are distinct entities, as seen earlier with TOFU. Certificates expand this security model.
 
