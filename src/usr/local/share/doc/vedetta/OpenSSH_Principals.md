@@ -172,7 +172,7 @@ OpenSSH host certificates authenticate server hosts to users.
 
 Add a new host to CA:
 ```console
-airtight# mkdir -p -m 700 /etc/ssh/ca/host/mercury.example.com/.ssh
+airtight# mkdir -pm 755 /etc/ssh/ca/host/mercury.example.com/.ssh
 ```
 
 Add the identified public host key:
@@ -193,7 +193,7 @@ airtight# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
 
 Verify:
 ```console
-ssh-keygen -L \
+airtight# ssh-keygen -L \
 	-f /etc/ssh/ca/host/mercury.example.com/.ssh/ssh_host_ed25519_key-cert.pub
 
 	Type: ssh-ed25519-cert-v01@openssh.com host certificate
@@ -310,7 +310,9 @@ By now, hosts and users are in possession of their certificates, and OpenSSH nee
  | | |-ssh_ca.krl
  | |-principals/
  | | |-puffy
+ | |-ssh_host_ed25519_key
  | |-ssh_host_ed25519_key-cert.pub
+ | |-ssh_host_ed25519_key.pub
 ```
 
 On hosts, we associate principals with local users:
@@ -401,5 +403,5 @@ RDomain %D
 ...
 ```
 
-Contributions to this document are welcome, please open a "[Pull Request](https://github.com/vedetta-com/vedetta/pulls)"!
+Contributions are welcome, please open a [Pull Request](https://github.com/vedetta-com/vedetta/pulls)
 
