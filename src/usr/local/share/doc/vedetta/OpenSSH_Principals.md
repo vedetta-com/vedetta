@@ -270,7 +270,7 @@ Key revocation lists (KRL) avoid the process of recreating the CA on each change
 
 Create a new KRL
 ```console
-# ssh-keygen -k \
+airtight# ssh-keygen -k \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	-s /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub \
 	-z 2 \
@@ -279,7 +279,7 @@ Create a new KRL
 
 Update an existing KRL
 ```console
-# ssh-keygen -k \
+airtight# ssh-keygen -k \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	-u \
 	-s /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub \
@@ -289,7 +289,7 @@ Update an existing KRL
 
 Query KRL
 ```console
-# ssh-keygen -Q \
+airtight# ssh-keygen -Q \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	/etc/ssh/ca/user/puffy/.ssh/id_ed25519-cert.pub
 ```
