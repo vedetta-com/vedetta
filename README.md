@@ -395,6 +395,8 @@ Manage keys with [ssh-agent](https://man.openbsd.org/ssh-agent).
 
 Detect tampered keyfiles or man in the middle attacks with [ssh-keyscan](http://man.openbsd.org/ssh-keyscan).
 
+Control access to local users with [principals](https://github.com/vedetta-com/vedetta/blob/master/src/usr/local/share/doc/vedetta/OpenSSH_Principals.md).
+
 ## Firewall
 Guests can use the DNS nameserver to access the ad-free web, while authenticated users gain desired permissions. It's best to authenticate an IP after connecting to VPN. There are three users in this one person scenario: one for wheel, one for sftp, and one for authpf.
 
