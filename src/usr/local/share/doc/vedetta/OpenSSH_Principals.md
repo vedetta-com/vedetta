@@ -13,7 +13,7 @@ Table of contents:
 - [Client Configuration](#client-configuration)
 - [Gateway](#gateway)
 
-OpenSSH daemon, in it's default configuration, is more than sufficient for one user to remote login into one machine, with sophisticated security.
+OpenSSH daemon, in its default configuration, is more than sufficient for one user to remote login into one machine, with sophisticated security.
 
 A typical fresh install has SSH host keys, and the OpenSSH daemon started on first boot.
 
