@@ -158,6 +158,12 @@ Generate a new password protected CA key:
 airtight# ssh-keygen -t ed25519 -C ca@example.com -f /etc/ssh/ca/.ssh/ssh_ca_ed25519
 ```
 
+Transfer the public CA key from CA to sysadmin's laptop, and further to the host:
+```console
+laptop$ scp /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub \
+	puffy@mercury.example.com:/etc/ssh/ca/.ssh/
+```
+
 The CA is now ready to issue signed certificates with the following information:
 - public key
 - ([-I](https://man.openbsd.org/ssh-keygen#I)) identity
@@ -261,7 +267,8 @@ airtight# ssh-keygen -L \
 
 Transfer the user certificate from CA to sysadmin's laptop (and further to the user):
 ```console
-laptop$ cp id_ed25519-cert.pub ~/.ssh
+laptop$ scp /etc/ssh/ca/user/puffy/.ssh/id_ed25519-cert.pub \
+	puffy@mercury.example.com:/home/puffy/.ssh/
 ```
 
 ### Key Revocation List
@@ -328,11 +335,12 @@ Relevant daemon configuration snippet:
 mercury# cat /etc/ssh/sshd_config
 ...
 #HostKey /etc/ssh/ssh_host_ed25519_key
+
 # https://man.openbsd.org/sshd_config.5#HostKeyAlgorithms
 HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-ed25519
 HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
 
-# CA
+# Certificate Authority
 TrustedUserCAKeys /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub
 RevokedKeys /etc/ssh/ca/ssh_ca.krl
 # http://man.openbsd.org/sshd_config.5#CASignatureAlgorithms
@@ -344,9 +352,9 @@ PermitRootLogin no # default: prohibit-password
 # http://man.openbsd.org/sshd_config.5#PubkeyAcceptedKeyTypes
 PubkeyAcceptedKeyTypes ssh-ed25519-cert-v01@openssh.com,ssh-ed25519
 
-# Principals
-AuthorizedKeysFile none # default: .ssh/authorized_keys
-# http://man.openbsd.org/sshd_config.5#AuthorizedPrincipalsFile                                              
+AuthorizedKeysFile	none # default: .ssh/authorized_keys
+
+# http://man.openbsd.org/sshd_config.5#AuthorizedPrincipalsFile
 AuthorizedPrincipalsFile /etc/ssh/principals/%u # default: none
 
 PasswordAuthentication no # default: yes
@@ -390,7 +398,7 @@ OpenSSH configuration is flexible, and it is well worth upgrading to certificate
 
 It is possible to further centralize with [OpenSSH gateway](https://github.com/vedetta-com/vedetta/blob/master/src/etc/relayd.conf.relay.ssh), using `relayd` and `rdomain`:
 ```console
-$ cat /etc/ssh/sshd_config
+gateway$ cat /etc/ssh/sshd_config
 ...
 #http://man.openbsd.org/rdomain
 
@@ -403,5 +411,5 @@ RDomain %D
 ...
 ```
 
-Contributions are welcome, please open a [Pull Request](https://github.com/vedetta-com/vedetta/pulls)
+Contributions welcome, please open a [Pull Request](https://github.com/vedetta-com/vedetta/pulls)
 
