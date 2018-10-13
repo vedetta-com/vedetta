@@ -346,7 +346,7 @@ PubkeyAcceptedKeyTypes ssh-ed25519-cert-v01@openssh.com,ssh-ed25519
 
 # Principals
 AuthorizedKeysFile none # default: .ssh/authorized_keys
-# http://man.openbsd.org/sshd_config.5#AuthorizedPrincipalsFile                                              
+# http://man.openbsd.org/sshd_config.5#AuthorizedPrincipalsFile
 AuthorizedPrincipalsFile /etc/ssh/principals/%u # default: none
 
 PasswordAuthentication no # default: yes
