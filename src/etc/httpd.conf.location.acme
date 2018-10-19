@@ -1,6 +1,6 @@
 # ACME challenge
 location "/.well-known/acme-challenge/*" {
 	root "/acme"
-	root strip 2
+	request strip 2
 	pass
 }

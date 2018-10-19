@@ -25,17 +25,17 @@ server "freedns.afraid.org" {
 	# Path-based cache busting: route all requests for "/css-20170620/style.css" to "/css/style.css"
 	location match "^/css%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/css"
-		root strip 1
+		request strip 1
 		pass
 	}
 	location match "^/js%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/js"
-		root strip 1
+		request strip 1
 		pass
 	}
 	location match "^/img%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/img"
-		root strip 1
+		request strip 1
 		pass
 	}
 
@@ -64,17 +64,17 @@ server "freedns.afraid.org" {
 	# Path-based cache busting: route all requests for "/css-20170620/style.css" to "/css/style.css"
 	location match "^/css%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/css"
-		root strip 1
+		request strip 1
 		pass
 	}
 	location match "^/js%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/js"
-		root strip 1
+		request strip 1
 		pass
 	}
 	location match "^/img%-2%d%d%d%d%d%d%d/.+%..+" {
 		root "/htdocs/freedns.afraid.org/img"
-		root strip 1
+		request strip 1
 		pass
 	}
 

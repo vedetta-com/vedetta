@@ -10,6 +10,7 @@ users:*:10:
 auth:*:11:
 games:*:13:
 staff:*:20:root
+wobj:*:21:
 sshd:*:27:
 _portmap:*:28:
 _identd:*:29:
@@ -20,6 +21,9 @@ _fingerd:*:33:
 _sshagnt:*:34:
 _x11:*:35:
 utmp:*:45:
+_switchd:*:49:
+_traceroute:*:50:
+_ping:*:51
 _rebound:*:52:
 _unbound:*:53:
 _dpb:*:54:
@@ -55,8 +59,8 @@ _ripd:*:88:
 _relayd:*:89:
 _ospf6d:*:90:
 _snmpd:*:91:
-_rtadvd:*:92:
 _ypldap:*:93:
+_rad:*:94:
 _smtpd:*:95:
 _rwalld:*:96:
 _nsd:*:97:
@@ -73,15 +77,11 @@ _vmd:*:107:
 _tftp_proxy:*:108:
 _ftp_proxy:*:109:
 _sndiop:*:110:
+_syspatch:*:112:
+_slaacd:*:115:
 dialer:*:117:
 nogroup:*:32766:
 nobody:*:32767:
 puffy:*:1000:
 pauth:*:1001:
 psftp:*:1002:
-wobj:*:21:
-_switchd:*:49:
-_traceroute:*:50:
-_ping:*:51:
-_syspatch:*:112:
-_slaacd:*:115:
