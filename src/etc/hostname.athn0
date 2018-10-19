@@ -7,8 +7,7 @@ inet6 alias fd80:1fe9:fcee:cafe::ace:face 64
 mediaopt hostap
 # Full length hex key (0x...), or
 # ifconfig will hash the nwid along with the passphrase to create the hex key
-nwid "OpenBSD AP"
-wpakey "secret"
+nwid "OpenBSD AP" wpakey "password123"
 # Select the mode automatically (!) at least 2 antennas are required for 11n
 #-mode
 # Channel (radio frequency) (!) https://wikipedia.org/wiki/List_of_WLAN_channels

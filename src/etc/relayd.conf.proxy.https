@@ -1,3 +1,5 @@
+# https://man.openbsd.org/relayd.conf#TLS_client_and_server
+
 http protocol httpsfilter {
 	return error
 	match header set "Connection" value "close"
@@ -7,7 +9,7 @@ http protocol httpsfilter {
 #	block url file "/etc/relayd.d/custom_blacklist"
 #	include "/etc/relayd.d/auto_blacklist"
 
-	tls ca key "/etc/ssl/relayd/private/ca.key" password "AvenaCrucio"
+	tls ca key "/etc/ssl/relayd/private/ca.key" password "password123"
 	tls ca cert "/etc/ssl/relayd/ca.crt" # import on client
 }
 
