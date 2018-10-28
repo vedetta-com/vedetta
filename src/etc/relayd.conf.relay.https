@@ -130,7 +130,7 @@ http protocol https {
 	# Various TCP performance options
 	tcp { nodelay, sack, socket buffer 65536, backlog 128 }
 
-	# Default
+	# TLS
 	tls { no client-renegotiation, cipher-server-preference }
 	include "/etc/relayd.conf.tls.HIGHER" # score 100% on ssllabs.com
 }
