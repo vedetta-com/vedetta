@@ -116,17 +116,18 @@ Subsystem	sftp	internal-sftp # internal-sftp for ChrootDirectory
 #	ForceCommand cvs server
 
 Match User puffy
-        AllowTcpForwarding yes
-#       PermitOpen host:port
+	AllowTcpForwarding yes
+#	PermitOpen host:port
 
 Match User pauth
-        AllowTcpForwarding no
+	AllowTcpForwarding no
 	ClientAliveInterval 15 # default 0
 	ClientAliveCountMax 3 # default 3
+	ForceCommand /sbin/nologin # disable sftp
 
 Match User psftp
 	AllowTcpForwarding no
 	ClientAliveInterval 15 # default 0
 	ClientAliveCountMax 3 # default 3
-        ForceCommand internal-sftp
-        ChrootDirectory %h
+	ForceCommand internal-sftp
+	ChrootDirectory %h
