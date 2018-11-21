@@ -408,6 +408,7 @@ Consider using [mount_mfs](https://man.openbsd.org/mount_mfs) in order to reduce
 * relayd does not support CRL, SNI, nor OCSP (yet)
 * httpd without custom error pages (can be patched)
 * 11n is max WiFi mode, [is this enough?](https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/)
+* authpf users have sftp access
 
 ## Support
 Via [issues](https://github.com/vedetta-com/vedetta/issues) and [#vedetta:matrix.org](https://riot.im/app/#/room/#vedetta:matrix.org)
