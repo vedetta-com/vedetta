@@ -77,7 +77,7 @@ Share what you've got, keep what you need:
     - [`etc/pf.conf`](src/etc/pf.conf)
     - [`etc/rc.d/dhcp6c`](src/etc/rc.d/dhcp6c)
     - [`etc/rc.d/dhcp6s`](src/etc/rc.d/dhcp6s)
-    - [`etc/rtadvd.conf`](src/etc/rtadvd.conf)
+    - [`etc/rad.conf`](src/etc/rad.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`rcctl`](https://man.openbsd.org/rcctl)` set dhcp6s flags -c /etc/dhcp6s.conf -dD -k /etc/dhcp6sctlkey em1`
@@ -253,14 +253,14 @@ Share what you've got, keep what you need:
     - [`rcctl`](https://man.openbsd.org/rcctl)` start relayd`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -T add -t httpfilter $ip`
     - [`pfctl`](https://man.openbsd.org/pfctl)` -T add -t tlsinspect $ip`
-* [rtadvd](https://man.openbsd.org/rtadvd) - router advertisement daemon
+* [rad](https://man.openbsd.org/rad) - router advertisement daemon
   - *Configure:*
     - [`etc/pf.conf`](src/etc/pf.conf)
-    - [`etc/rtadvd.conf`](src/etc/rtadvd.conf)
+    - [`etc/rad.conf`](src/etc/rad.conf)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set rtadvd flags athn0 em1 em2`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` start rtadvd`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable rad`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` start rad`
 * [sensorsd](https://man.openbsd.org/sensorsd) - hardware sensors monitor
   - *Configure:*
     - [`etc/sensorsd.conf`](src/etc/sensorsd.conf)
