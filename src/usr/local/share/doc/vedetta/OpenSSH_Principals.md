@@ -78,7 +78,7 @@ Next authentication method: publickey
 
 Otherwise, she must login using the interractive "password" authentication method, to add her public key on the host:
 ```console
-laptop$ cat ~/.ssh/id_ed25519.pub | ssh puffy@mercury.example.com "cat >> .ssh/authorized_keys"
+laptop$ ssh puffy@mercury.example.com "cat - >> .ssh/authorized_keys" < ~/.ssh/id_ed25519.pub
 ```
 
 *i.e.* Remote access to local user "puffy" on host "mercury.example.com" is now under control.
@@ -150,12 +150,12 @@ Since two hosts are part of the same service, they'll be part of the same "email
 
 Let's create each part of this sample CA, starting with its layout:
 ```console
-airtight# mkdir -pm 755 /etc/ssh/ca/.ssh
+airgap# mkdir -pm 755 /etc/ssh/ca/.ssh
 ```
 
 Generate a new password protected CA key:
 ```console
-airtight# ssh-keygen -t ed25519 -C ca@example.com -f /etc/ssh/ca/.ssh/ssh_ca_ed25519
+airgap# ssh-keygen -t ed25519 -C ca@example.com -f /etc/ssh/ca/.ssh/ssh_ca_ed25519
 ```
 
 Transfer the public CA key from CA to sysadmin's laptop, and further to the host:
@@ -178,17 +178,17 @@ OpenSSH host certificates authenticate server hosts to users.
 
 Add a new host to CA:
 ```console
-airtight# mkdir -pm 755 /etc/ssh/ca/host/mercury.example.com/.ssh
+airgap# mkdir -pm 755 /etc/ssh/ca/host/mercury.example.com/.ssh
 ```
 
 Add the identified public host key:
 ```console
-airtight# cp ssh_host_ed25519_key.pub /etc/ssh/ca/host/mercury.example.com/.ssh/
+airgap# cp ssh_host_ed25519_key.pub /etc/ssh/ca/host/mercury.example.com/.ssh/
 ```
 
 Generate a (-h) host certificate, using the `hostname` as identity and principal:
 ```console
-airtight# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
+airgap# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
 	-h \
 	-I mercury.example.com \
 	-n mercury.example.com \
@@ -199,7 +199,7 @@ airtight# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
 
 Verify:
 ```console
-airtight# ssh-keygen -L \
+airgap# ssh-keygen -L \
 	-f /etc/ssh/ca/host/mercury.example.com/.ssh/ssh_host_ed25519_key-cert.pub
 
 	Type: ssh-ed25519-cert-v01@openssh.com host certificate
@@ -234,7 +234,7 @@ laptop$ ssh-keygen -t ed25519 -C puffy@example.com
 
 The user sends her public key to her system administrator, to generate a user certificate, using "email" group principal:
 ```console
-airtight# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
+airgap# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
 	-I puffy \
 	-n email \
         -O no-x11-forwarding \
@@ -246,7 +246,7 @@ airtight# ssh-keygen -s /etc/ssh/ca/.ssh/ssh_ca_ed25519 \
 
 Verify: 
 ```console
-airtight# ssh-keygen -L \
+airgap# ssh-keygen -L \
 	-f /etc/ssh/ca/user/puffy/.ssh/id_ed25519-cert.pub
 
 	Type: ssh-ed25519-cert-v01@openssh.com user certificate
@@ -277,7 +277,7 @@ Key revocation lists (KRL) avoid the process of recreating the CA on each change
 
 Create a new KRL
 ```console
-airtight# ssh-keygen -k \
+airgap# ssh-keygen -k \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	-s /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub \
 	-z 2 \
@@ -286,7 +286,7 @@ airtight# ssh-keygen -k \
 
 Update an existing KRL
 ```console
-airtight# ssh-keygen -k \
+airgap# ssh-keygen -k \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	-u \
 	-s /etc/ssh/ca/.ssh/ssh_ca_ed25519.pub \
@@ -296,7 +296,7 @@ airtight# ssh-keygen -k \
 
 Query KRL
 ```console
-airtight# ssh-keygen -Q \
+airgap# ssh-keygen -Q \
 	-f /etc/ssh/ca/ssh_ca.krl \
 	/etc/ssh/ca/user/puffy/.ssh/id_ed25519-cert.pub
 ```
