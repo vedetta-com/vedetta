@@ -28,7 +28,7 @@ As another option:
 laptop$ ssh-keyscan -t ed25519 2001:0db8::1
 ```
 
-At this moment, the public host key to be added in `~/.ssh/known_hosts` (by the SSH protocol) is validated, completing the trust on first use (TOFU) security model.
+At this moment, the public host key to be added in `${HOME}/.ssh/known_hosts` (by the SSH protocol) is validated, completing the trust on first use (TOFU) security model.
 ```console
 Are you sure you want to continue connecting (yes/no)? yes
 ```
@@ -78,7 +78,7 @@ Next authentication method: publickey
 
 Otherwise, she must login using the interractive "password" authentication method, to add her public key on the host:
 ```console
-laptop$ ssh puffy@mercury.example.com "cat - >> .ssh/authorized_keys" < ~/.ssh/id_ed25519.pub
+laptop$ ssh puffy@mercury.example.com "cat - >> .ssh/authorized_keys" < "${HOME}/.ssh/id_ed25519.pub"
 ```
 
 *i.e.* Remote access to local user "puffy" on host "mercury.example.com" is now under control.
