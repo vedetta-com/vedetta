@@ -21,7 +21,7 @@ HOME=/var/log
 30	7	1	*	*	/usr/local/bin/adhosts.sh > /dev/null 2>&1
 30	9	1	*	*	/usr/local/bin/malware.sh > /dev/null 2>&1
 30	11	1,14	*	*	/usr/local/bin/dnsblock.sh > /dev/null 2>&1
-20	8	*	*	*	syspatch -c; fw_update -i
+20	8	*	*	*	syspatch -c; fw_update -i | grep -v Installed
 # schedule starts at 9am
 0	9	*	*	*	pfctl -t schedule -T replace -f /etc/pf.schedule > /dev/null 2>&1
 # schedule ends at 5pm
