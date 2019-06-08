@@ -1,3 +1,6 @@
 next_part "Let's Encrypt \"freedns.afraid.org\":"
 acme-client -v freedns.afraid.org && rcctl reload httpd relayd
-/usr/local/bin/get-ocsp.sh freedns.afraid.org && rcctl reload httpd
+ocspcheck -vNo /etc/ssl/acme/freedns.afraid.org.ocsp.resp.der \
+	/etc/ssl/acme/freedns.afraid.org.fullchain.pem &&
+		rcctl reload httpd
+

@@ -23,7 +23,7 @@ Share what you've got, keep what you need:
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
     - [`acme-client`](https://man.openbsd.org/acme-client)` -vAD freedns.afraid.org`
-    - [`usr/local/bin/get-ocsp.sh`](src/usr/local/bin/get-ocsp.sh)` freedns.afraid.org`
+    - [`ocspcheck`](https://man.openbsd.org/ocspcheck)` -vNo /etc/ssl/acme/freedns.afraid.org.ocsp.resp.der /etc/ssl/acme/freedns.afraid.org.fullchain.pem`
 * [authpf](https://man.openbsd.org/authpf) - authenticating gateway user shell
   - *Configure:*
     - [`etc/authpf`](src/etc/authpf)
