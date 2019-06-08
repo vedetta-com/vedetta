@@ -18,7 +18,7 @@ Share what you've got, keep what you need:
     - [`etc/relayd.conf`](src/etc/relayd.conf)
     - [`etc/ssl/acme`](src/etc/ssl/acme)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
-    - `var/www/htdocs/acme`
+    - `var/www/acme`
     - [`var/www/htdocs/freedns.afraid.org`](src/var/www/htdocs/freedns.afraid.org)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
