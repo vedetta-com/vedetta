@@ -188,7 +188,7 @@ Share what you've got, keep what you need:
     - [`var/nsd`](src/var/nsd)
   - *Usage:*
     - [`pfctl`](https://man.openbsd.org/pfctl)` -f /etc/pf.conf`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set nsd flags -c /var/nsd/etc/nsd.conf`
+    - [`rcctl`](https://man.openbsd.org/rcctl)` enable nsd`
     - [`rcctl`](https://man.openbsd.org/rcctl)` start nsd`
 * [ntpd](https://man.openbsd.org/ntpd) - Network Time Protocol daemon
   - *Configure:*
@@ -305,8 +305,6 @@ Share what you've got, keep what you need:
     - [`etc/newsyslog.conf`](src/etc/newsyslog.conf)
     - [`var/cron/tabs/root`](src/var/cron/tabs/root)
   - *Usage:*
-    - [`rcctl`](https://man.openbsd.org/rcctl)` set syslogd flags \${syslogd_flags} -a /var/unbound/dev/log -a /var/nsd/dev/log`
-    - [`rcctl`](https://man.openbsd.org/rcctl)` start syslogd`
 * [unbound](https://man.openbsd.org/unbound) - Unbound DNS validating resolver from root nameservers, with caching and DNS based adblock
   - *Configure:*
     - [`etc/dhclient.conf`](src/etc/dhclient.conf)
