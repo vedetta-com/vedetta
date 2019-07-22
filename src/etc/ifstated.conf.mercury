@@ -1,0 +1,93 @@
+# $OpenBSD: ifstated.conf,v 1.2 2018/01/20 23:07:58 mpf Exp $
+
+# Crude service monitoring daemon:
+#   cp -p /etc/rc.d/ifstated /etc/rc.d/ifstated2
+#   rcctl enable ifstated2
+#   rcctl set ifstated2 flags -f /etc/ifstated.conf.mercury
+#   rcctl start ifstated2
+
+# Global Configuration
+
+init-state auto
+
+# Macros
+
+inet_mercury = '( "(ping -q -c 1 -w 10 203.0.113.1 > /dev/null && \
+		ping6 -q -c 1 -w 10 2001:0db8::1 > /dev/null)" every 70 )'
+
+dns_mercury = '( "(host -4Ts -W 10 -t a mercury.example.com dot.example.com > /dev/null && \
+		host -6Ts -W 10 -t a mercury.example.com dot.example.com > /dev/null)" every 70 )'
+
+https_mercury  = '( "(ftp -6MVo - -w 10 https://mercury.example.com > /dev/null && \
+		ftp -4MVo - -w 10 https://mercury.example.com > /dev/null)" every 70 )'
+
+smtps_mercury = '( "(nc -6czw 10 mercury.example.com 465 > /dev/null && \
+		nc -4czw 10 mercury.example.com 465 /dev/null)" every 70 )'
+
+# State Definitions
+
+state auto {
+	init {
+		run "logger -t ifstated '(auto)'"
+	}
+	if ! $inet_mercury {
+		run "logger -t ifstated '(inet_mercury) down'"
+		run "echo down | mail -r ifstated@example.com -s 'ifstated (inet_mercury)' root"
+	}
+	if $inet_mercury {
+		run "logger -t ifstated '(inet_mercury) up'"
+		run "echo up | mail -r ifstated@example.com -s 'ifstated (inet_mercury)' root"
+		set-state inet
+	}
+}
+
+state inet {
+	init {
+		run "logger -t ifstated '(inet)'"
+	}
+	if ! $dns_mercury {
+		run "logger -t ifstated '(dns_mercury) down'"
+		run "echo down | mail -r ifstated@example.com -s 'ifstated (dns_mercury)' root"
+		if ! $inet_mercury {
+			set-state auto
+		}
+	}
+	if $dns_mercury {
+		run "logger -t ifstated '(dns_mercury) up'"
+		run "echo up | mail -r ifstated@example.com -s 'ifstated (dns_mercury)' root"
+		set-state dns
+	}
+}
+
+state dns {
+	init {
+		run "logger -t ifstated '(dns)'"
+	}
+
+	# https
+	if ! $https_mercury {
+		run "logger -t ifstated '(https_mercury) down'"
+		run "echo down | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
+		if ! $dns_mercury {
+			set-state inet
+		}
+	}
+	if $https_mercury {
+		run "logger -t ifstated '(https_mercury) up'"
+		run "echo up | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
+	}
+
+	# smtps
+	if ! $smtps_mercury {
+		run "logger -t ifstated '(smtps_mercury) down'"
+		run "echo down | mail -r ifstated@example.com -s 'ifstated (smtps_mercury)' root"
+		if ! $dns_mercury {
+			set-state inet
+		}
+	}
+	if $smtps_mercury {
+		run "logger -t ifstated '(smtps_mercury) up'"
+		run "echo up | mail -r ifstated@example.com -s 'ifstated (smtps_mercury)' root"
+	}
+}
+
