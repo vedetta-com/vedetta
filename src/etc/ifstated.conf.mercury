@@ -63,8 +63,6 @@ state dns {
 	init {
 		run "logger -t ifstated '(dns)'"
 	}
-
-	# https
 	if ! $https_mercury {
 		run "logger -t ifstated '(https_mercury) down'"
 		run "echo down | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
@@ -76,8 +74,6 @@ state dns {
 		run "logger -t ifstated '(https_mercury) up'"
 		run "echo up | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
 	}
-
-	# smtps
 	if ! $smtps_mercury {
 		run "logger -t ifstated '(smtps_mercury) down'"
 		run "echo down | mail -r ifstated@example.com -s 'ifstated (smtps_mercury)' root"
