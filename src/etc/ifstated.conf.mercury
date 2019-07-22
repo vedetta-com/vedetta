@@ -18,11 +18,11 @@ inet_mercury = '( "(ping -q -c 1 -w 10 203.0.113.1 > /dev/null && \
 dns_mercury = '( "(host -4Ts -W 10 -t a mercury.example.com dot.example.com > /dev/null && \
 		host -6Ts -W 10 -t a mercury.example.com dot.example.com > /dev/null)" every 70 )'
 
-https_mercury  = '( "(ftp -6MVo - -w 10 https://mercury.example.com > /dev/null && \
-		ftp -4MVo - -w 10 https://mercury.example.com > /dev/null)" every 70 )'
+https_mercury  = '( "(ftp -4MVo - -w 10 https://mercury.example.com > /dev/null && \
+		ftp -6MVo - -w 10 https://mercury.example.com > /dev/null)" every 70 )'
 
-smtps_mercury = '( "(nc -6czw 10 mercury.example.com 465 > /dev/null && \
-		nc -4czw 10 mercury.example.com 465 /dev/null)" every 70 )'
+smtps_mercury = '( "(nc -4czw 10 mercury.example.com 465 > /dev/null && \
+		nc -6czw 10 mercury.example.com 465 /dev/null)" every 70 )'
 
 # State Definitions
 
@@ -63,8 +63,6 @@ state dns {
 	init {
 		run "logger -t ifstated '(dns)'"
 	}
-
-	# https
 	if ! $https_mercury {
 		run "logger -t ifstated '(https_mercury) down'"
 		run "echo down | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
@@ -76,8 +74,6 @@ state dns {
 		run "logger -t ifstated '(https_mercury) up'"
 		run "echo up | mail -r ifstated@example.com -s 'ifstated (https_mercury)' root"
 	}
-
-	# smtps
 	if ! $smtps_mercury {
 		run "logger -t ifstated '(smtps_mercury) down'"
 		run "echo down | mail -r ifstated@example.com -s 'ifstated (smtps_mercury)' root"
