@@ -4,5 +4,5 @@ description "em2.7"
 vnetid 7
 parent em2
 inet 192.168.7.1 255.255.255.0 192.168.7.255
-inet6 fd80:1fe9:fcee:baba::ace:face 64
+inet6 alias fd80:1fe9:fcee:baba::ace:face 64
 up
