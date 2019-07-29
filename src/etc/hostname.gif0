@@ -4,7 +4,7 @@
 description "Hurricane Electric IPv6 tunnel"
 mtu 1480
 tunnel $(ifconfig egress | awk '$1 ~ /^inet$/{print $2;exit;}') 216.66.38.58
-inet6 2001:470:1c:7b8::2 128
+inet6 alias 2001:470:1c:7b8::2 128
 dest  2001:470:1c:7b8::1
 !route -n add -inet6 default 2001:470:1c:7b8::1
 inet6 alias 2001:470:b35c:ed9e::ace:face 64

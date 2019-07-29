@@ -5,6 +5,6 @@ description "services interface"
 lladdr random
 inet 10.10.10.10 255.255.255.0 10.10.10.255
 inet alias 10.10.10.11 255.255.255.255
-inet6 2001:470:b35c:1337::ace:face 64
+inet6 alias 2001:470:b35c:1337::ace:face 64
 inet6 alias fd80:1fe9:fcee:1337::ace:face 64
 inet6 alias fd80:1fe9:fcee:1337::ace:babe 64
